@@ -1,109 +1,90 @@
-.head_banner_code {
+.home-head_banner_code {
     color: white;
     background-color: var(--primary-color);
 
     height: 300px;
 
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.box_txt_banner_code {
-    width: 80%;
+.home-box_txt_banner_code {
+    margin-top: 70px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    margin-left: 30%;
+    align-items: center;
 }
 
-.name_banner_code {
+.home-name_banner_code {
     font-size: 3em;
-
-    align-self: center;
 
     animation: anm-title-banner-code 1s ease-out;
 }
 
-.title_banner_code {
+.home-title_banner_code {
     font-size: 2em;
-
-    align-self: center;
 
     animation: anm-subtitle-banner-code 1.5s ease-out;
 }
 
-.sub_title_banner_code {
-    align-self: center;
-
+.home-sub_title_banner_code {
     animation: anm-subtitle-banner-code 2s ease-out;
 }
 
-.wrapper_profile_img {
-    width: 200px;
-    height: 180px;
-
-    overflow: hidden;
-
-    position: absolute;
-
-    margin: 160px 0px 0px 270px;
-
-    border: 3px solid black;
-
-    left: 0px;
+.home-wrapper_profile_img {
+    height: 220px;
 }
 
-.main_container_index {
-    text-align: center;
+.home-wrapper_profile_img img {
 
-    font-size: 2em;
-
-    margin-top: 100px;
-
-    width: 100%;
-
-    animation: anm-content-text 4s infinite ease-in-out;
 }
 
+.home-main_sections {
+    width: 80%;
+    height: 500px;
+
+    margin: 200px auto 80px auto;
+
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.home-contact_plus {
+    background-color: var(--secondary-color);
+    margin: 10px;
+}
+
+.home-content_container_index {
+    margin: 10px;
+
+    background-color: var(--secondary-color);
+}
 @keyframes anm-title-banner-code {
     0% {
-        transform: translateX(-100px);
+        transform: translateY(-40px);
         opacity: 0%;
     }
     100% {
-        transform: translateX(0px);
+        transform: translateY(0px);
         opacity: 100%;
     }
 }
 
 @keyframes anm-subtitle-banner-code {
     0% {
-        transform: translateX(-100px);
+        transform: translateY(-30px);
         opacity: 0%;
     }
     70% {
-        transform: translateX(-100px);
+        transform: translateY(-30px);
         opacity: 0%;
     }
     100% {
-        transform: translateX(0px);
+        transform: translateY(0px);
         opacity: 100%;
-    }
-}
-
-@keyframes anm-content-text {
-    0% {
-        transform: translateY(0px);
-    }
-    45% {
-        transform: translateY(20px);
-    }
-    45% {
-        transform: translateY(-20px);
-    }
-    100% {
-        transform: translateY(0px);
     }
 }
