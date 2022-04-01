@@ -33,7 +33,7 @@
 .navbar-transparent a {
     color: var(--white);
 
-    font-size: 20px;
+    font-size: 15px;
 
     text-decoration: none;
 }
@@ -110,8 +110,8 @@
 }
 
 .img-logo-banner {
-    height: 170px;
-    width: 190px;
+    height: 85px;
+    width: 95px;
 
     background-image: url('/logo_lrg_cesar_augusto.png');
     background-repeat: no-repeat;
@@ -130,12 +130,12 @@
 }
 
 .title-banner:nth-child(1) {
-    font-size: 50px;
+    font-size: 20px;
 }
 
 .title-banner {
     margin: 10px;
-    font-size: 30px;
+    font-size: 15px;
 }
 
 .subtitle-banner {
