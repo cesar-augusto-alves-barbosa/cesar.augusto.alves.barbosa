@@ -1,33 +1,59 @@
 import React from "react";
+import Image from "next/image";
+
+if (typeof window !== "undefined") {
+    window.addEventListener('scroll', () => {
+        var nav = document.getElementById('nav-bar')
+        nav.classList.toggle('sticky-nav', window.scrollY > 0)
+    })
+  }
+
 function Home() {
     return (
-        <>
-            <head className="home-head_banner_code">
-                <div className="home-box_txt_banner_code">
-                    <h1 className="home-name_banner_code" id="nameBunnerCode">
-                        Cesar Augusto Alves Barbosa
-                    </h1>
-                    <h2 className="home-title_banner_code">
-                        Desenvolvedor Full Stack Júnior
-                    </h2>
-                    <h3 className="home-sub_title_banner_code">
-                        desenvolvendo soluções criativas e inovadoras
-                    </h3>
-                    
+        <>  
+        <nav id="nav-bar" className="navbar-transparent navbar fixed-top navbar-expand-lg">
+                    <div className="container-fluid">
+                        <a className="navbar-brand" href="/">
+                            <Image 
+                                src="/logo_cesar_augusto.png" 
+                                className="img-logo" 
+                                width="63" 
+                                height="62" 
+                                alt="Logo Cesar Augusto" 
+                            />
+                            <span className="title-logo">CESAR AUGUSTO</span>
+                        </a>
+
+                        <li className="nav-list">
+                                <a className="nav-list-item" href="#">SOBRE</a>
+                                <a className="nav-list-item" href="#">PORTIFOLIO</a>
+                                <a className="nav-list-item" href="#">TECNOLOGIAS</a>  
+                        </li>
+                    </div>   
+                </nav> 
+            <div className="banner-home">
+                <Image 
+                    src="/banner-home.png" 
+                    className="img-background-banner" 
+                    layout="fill"
+                    alt="Logo Cesar Augusto" 
+                />
+                <Image 
+                    src="/logo_lrg_cesar_augusto.png" 
+                    className="img-logo-banner" 
+                    width="208" 
+                    height="183" 
+                    alt="Logo Cesar Augusto" 
+                />
+                <div className="container-titles-banner">
+                    <h1 className="title-banner" >CESAR AUGUSTO</h1>
+                    <h3 className="title-banner" >DESENVOLVEDOR FULL STACK</h3>
+                    <h3 className="title-banner subtitle-banner" >Desenvolvendo soluções criativas e inovadoras</h3>
                 </div>
-            </head>
-            <main className="home-main_sections">
-                <section className="home-contact_plus">
-                    <h3>
-                        Contato
-                    </h3>
-                </section>
-                <div className="home-content_container_index" >
-                    <h2>
-                       Sobre Mim 
-                    </h2>
-                </div>
-            </main>
+            </div>
+            <section className="section-about-me">
+
+            </section>
         </>
     )
 }
