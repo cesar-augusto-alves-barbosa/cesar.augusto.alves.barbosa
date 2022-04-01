@@ -33,7 +33,9 @@
 .navbar-transparent a {
     color: var(--white);
 
-    font-size: 1.3em;
+    font-size: 20px;
+
+    text-decoration: none;
 }
 
 .navbar-brand {
@@ -62,6 +64,7 @@
 .nav-list-item {
     position: relative;
     text-align: center;
+    text-decoration: none;
 
     margin-left: 30px;
 }
@@ -106,6 +109,15 @@
     filter: brightness(50%);
 }
 
+.img-logo-banner {
+    height: 170px;
+    width: 190px;
+
+    background-image: url('/logo_lrg_cesar_augusto.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .container-titles-banner {
     color: var(--white);
     font-family: 'Orbitron', sans-serif;
@@ -117,8 +129,13 @@
     margin-top: 40px;
 }
 
+.title-banner:nth-child(1) {
+    font-size: 50px;
+}
+
 .title-banner {
     margin: 10px;
+    font-size: 30px;
 }
 
 .subtitle-banner {

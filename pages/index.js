@@ -38,13 +38,10 @@ function Home() {
                     layout="fill"
                     alt="Logo Cesar Augusto" 
                 />
-                <Image 
-                    src="/logo_lrg_cesar_augusto.png" 
+                <div
                     className="img-logo-banner" 
-                    width="208" 
-                    height="183" 
                     alt="Logo Cesar Augusto" 
-                />
+                ></div>
                 <div className="container-titles-banner">
                     <h1 className="title-banner" >CESAR AUGUSTO</h1>
                     <h3 className="title-banner" >DESENVOLVEDOR FULL STACK</h3>
