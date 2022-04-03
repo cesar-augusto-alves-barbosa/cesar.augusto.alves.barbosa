@@ -1,11 +1,29 @@
+
+
 .navbar-transparent {
     position: fixed;
 
     font-family: 'Orbitron', sans-serif;
 
-    transition-duration: .5s;
+    transition-duration: .2s;
 
     height: 100px;
+
+    padding: 0!important;
+}
+
+.icon-menu {
+    color: white;
+
+    font-size: 3rem;
+
+    margin-right: 30px;
+
+    transition-duration: .5s;
+}
+
+.icon-menu:active {
+    transform: scale(0.9);
 }
 
 .sticky-nav {
@@ -15,19 +33,13 @@
     background-color: var(--gray);
 }
 
-.sticky-nav::before {
-    content: '';
+.nav-bar-mobile-brand span{
+    width: 43px!important;
+    height: 42px;
+}
 
-    transition-duration: .2s;
-
-    width: 100%;
-    height: 1px;
-
-    position: absolute;
-    z-index: 2;
-    bottom: 0;
-
-    background-color: var(--blue);
+.title-logo-mobile {
+    font-size: 14px!important;
 }
 
 .navbar-transparent a {
@@ -38,25 +50,35 @@
     text-decoration: none;
 }
 
-.navbar-brand {
-    width: 280px;
+.container-nav-bar {
+    width: 100%;
+
+    padding: 0;
+}
+
+.navbar-brand  {
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
-    margin-left: 80px;
+    margin-left: 30px;
+    margin-right: 0!important;
 }
+
 
 .navbar-brand .title-logo {
     position: relative;
 
     margin-left: 20px;
+
+    font-size: 18px;
 }
 
 .nav-list {
     display: flex;
     justify-content: space-between;
+
+    width: min-content;
 
     margin-right: 80px;
 }
@@ -101,6 +123,8 @@
     flex-direction: column;
 
     position: relative;
+
+    text-align: center;
 }
 
 .img-background-banner {
@@ -130,18 +154,175 @@
 }
 
 .title-banner:nth-child(1) {
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .title-banner {
     margin: 10px;
-    font-size: 15px;
+    font-size: 20px;
 }
 
 .subtitle-banner {
     letter-spacing: 5px;
 }
 
+
+
 .section-about-me {
-    height: 100vh;
+    padding: 0!important;
+
+    display: flex;
+    align-items: center;
+}
+
+.container-about-me {
+    justify-content: center;
+}
+
+.container-image-profile {
+    display: flex;
+    justify-content: center;
+}
+
+.container-image-profile span {
+    border: 3px solid black;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 8px;
+
+    transition-duration: .5s;
+}
+
+.image-profile-about-me {
+    pointer-events: none;
+}
+
+.container-image-profile span:hover {
+    transform: scale(1.05);
+}
+
+.container-paragraphs-about-me {
+    padding: 0;
+}
+
+.title-about-me {
+    font-size: 30px;
+}
+
+.paragraph-about-me {
+    font-size: 16px;
+
+    text-align: justify;
+}
+
+@media only screen and (max-width: 930px) {
+    .container-paragraphs-about-me {
+        width: 80%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } 
+
+    .title-banner:nth-child(1) {
+        font-size: 20px;
+    }
+    
+    .title-banner {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 692px) {
+    .nav-bar-mobile {
+        display: none;
+    }
+
+    .icon-menu {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 692px) {
+
+    .container-nav-bar {
+        justify-content: flex-start!important;
+    }
+    .nav-bar-mobile {
+        display: flex;
+    }
+
+    #side-bar {
+        height: 100%;
+        width: 100%;
+
+        bottom: 0;
+
+        position: fixed;
+
+        display: none;
+        flex-direction: column;
+        align-items: unset!important;
+
+        background-color: var(--black);
+    }
+
+
+    .navbar-brand {
+       margin-top: 20px;
+       margin-left: 40px;
+    }
+
+    .icon-close-menu {
+        color: white;
+
+        position: absolute;
+
+        right: 2vw;
+        top: 20px;
+
+        font-size: 50px;
+    }
+
+    .nav-list {
+        margin: 50px 0px 0px 50px;
+
+        width: 80%;
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav-list-item {
+        width: max-content;
+
+        text-align: left;
+
+        margin: 10px 0!important;
+
+        font-size: 20px!important;
+    }
+
+    .icon-menu {
+        font-size: 2em;
+
+        margin-right: 10px;
+    }
+    .section-about-me {
+        display: flex;
+        justify-content: center;
+    }
+    .container-about-me {
+        width: 100%;
+    }
+    .title-about-me {
+        font-size: 20px;
+
+        width: max-content;
+    }
+    
+    .paragraph-about-me {
+        width: 80%;
+
+        font-size: 12px;
+    }
 }
