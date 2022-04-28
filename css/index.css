@@ -3,8 +3,6 @@
 .navbar-transparent {
     position: fixed;
 
-    font-family: 'Orbitron', sans-serif;
-
     transition-duration: .2s;
 
     height: 100px;
@@ -72,6 +70,8 @@
     margin-left: 20px;
 
     font-size: 18px;
+
+    font-family: 'Orbitron', sans-serif;
 }
 
 .nav-list {
@@ -89,6 +89,8 @@
     text-decoration: none;
 
     margin-left: 30px;
+
+    font-family: 'Orbitron', sans-serif;
 }
 
 .nav-list-item::before,
@@ -112,6 +114,21 @@
 }
 
 
+.icon-close-menu {
+    display: none;
+}
+
+.nav-bar-mobile {
+    display: none;
+}
+
+.icon-menu {
+    display: none;
+}
+
+.container-navbar-mobile {
+    display: none!important;
+}
 
 .banner-home{
     height: 100vh;
@@ -144,7 +161,6 @@
 
 .container-titles-banner {
     color: var(--white);
-    font-family: 'Orbitron', sans-serif;
 
     display: flex;
     flex-direction: column;
@@ -160,6 +176,7 @@
 .title-banner {
     margin: 10px;
     font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 .subtitle-banner {
@@ -212,9 +229,116 @@
     font-size: 16px;
 
     text-align: justify;
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
 }
 
+.footer {
+    padding: 20px;
+
+    max-height: 20vh;
+    width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    color: var(--white);
+    background-color: var(--black);
+}
+
+.footer-container-social-media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.footer-container-icons-social-media {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+}
+
+.footer-icon-social-media  {
+    cursor: pointer;
+
+    transition-duration: .5s;
+
+    font-size: 30px;
+
+    margin: 10px;
+}
+
+.footer-icon-social-media:hover{
+    transform: scale(1.1);
+}
+
+.footer-icon-social-media:active{
+    transform: scale(0.9);
+}
+.footer-container-brand {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    flex: 1;
+}
+
+.footer-subtitle-brand {
+    margin: 0px 20px;
+}
+
+.footer-container-contact {
+    text-align: center;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+.footer-subtitle-contact {
+    margin: 0;
+}
+.footer-list-contact {
+    margin: 0!important;
+    padding: 0!important;
+
+    width: 100%;
+
+    text-align: center;
+
+    justify-self: center;
+}
+.footer-item-contact {
+    margin: 0!important;
+    text-decoration: none!important;
+}
+
+
+
+.footer-subtitle-contact,
+.footer-subtitle-brand,
+.footer-subtitle-social-media {
+    font-size: 18px;
+
+    font-family: 'Orbitron', sans-serif;
+}
+
+
+
 @media only screen and (max-width: 930px) {
+
+    .footer {
+        max-height: unset;
+    }
+    .img-logo {
+        width: 40px!important;
+        height: 39px!important;
+    }
     .container-paragraphs-about-me {
         width: 80%;
 
@@ -232,25 +356,36 @@
     }
 }
 
-@media only screen and (min-width: 692px) {
-    .nav-bar-mobile {
-        display: none;
+@media only screen and (max-width: 768px) {
+    .footer-container-social-media,
+    .footer-container-brand,
+    .footer-container-contact {
+        margin: 30px 0;
     }
 
-    .icon-menu {
-        display: none;
+    .footer {
+        flex-direction: column;
     }
 }
 
-@media only screen and (max-width: 692px) {
+@media only screen and (max-width: 750px) {
+
+
+
+    .container-navbar-mobile {
+        display: flex!important;
+    }
 
     .container-nav-bar {
         justify-content: flex-start!important;
     }
     .nav-bar-mobile {
         display: flex;
+    
     }
-
+    .icon-menu {
+        display: block;
+    }
     #side-bar {
         height: 100%;
         width: 100%;
@@ -272,7 +407,13 @@
        margin-left: 40px;
     }
 
+    .nav-bar-mobile-brand {
+        margin: 0;
+        margin-left: 20px;
+    }
+
     .icon-close-menu {
+        display: block;
         color: white;
 
         position: absolute;
@@ -324,5 +465,21 @@
         width: 80%;
 
         font-size: 12px;
+    }
+}
+
+
+@media only screen and (max-width: 375px) {
+    .navbar-brand img {
+        height: 40px!important;
+        width: 41px!important;
+    }
+
+    .title-logo {
+        font-size: 15px!important;
+    }
+
+    .icon-close-menu {
+        font-size: 30px;
     }
 }

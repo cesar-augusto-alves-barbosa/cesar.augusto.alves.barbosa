@@ -26,11 +26,11 @@ function Home() {
     return (
         <>  
         <nav id="nav-bar" className="navbar-transparent navbar fixed-top navbar-expand-lg">
-                    <div className="container-fluid">
+                    <div className="container-navbar-mobile container-fluid">
                         <a className="navbar-brand nav-bar-mobile nav-bar-mobile-brand" href="/">
                             <Image 
                                 src="/logo_cesar_augusto.png" 
-                                className="img-logo" 
+                                className="img-logo img-logo-nav-mobile" 
                                 width="63" 
                                 height="62" 
                                 alt="Logo Cesar Augusto" 
@@ -59,7 +59,7 @@ function Home() {
                         </li>
                     </div>   
                 </nav> 
-            <div className="banner-home">
+            <section className="banner-home">
                 <Image 
                     src="/banner-home.png" 
                     className="img-background-banner" 
@@ -75,7 +75,7 @@ function Home() {
                     <h3 className="title-banner" >DESENVOLVEDOR FULL STACK</h3>
                     <h3 className="title-banner subtitle-banner" >Desenvolvendo soluções criativas e inovadoras</h3>
                 </div>
-            </div>
+            </section>
             <section className="section-about-me container col-xxl-8 px-4 py-5">
                 <div className="container-about-me row align-items-center g-5 py-5">
                     <div className="container-image-profile col-10 col-sm-8 col-lg-6">
@@ -89,7 +89,7 @@ function Home() {
                     <div className="container-paragraphs-about-me col-lg-6">
                         <h1 className="title-about-me display-5 fw-bold lh-1 mb-3">Sobre mim</h1>
                         <p className="paragraph-about-me lead">
-                            Sou programador junior, graduado em Análise e Desenvolvimento de Sistemas
+                            Meu nome é Cesar Augusto, tenho 19 anos, sou programador junior, graduado em Análise e Desenvolvimento de Sistemas
                             na faculdade Bandtec(atual São Paulo Tech School). 
                             Adquiri um amplo 
                             conhecimento técnico através de projetos 
@@ -106,6 +106,36 @@ function Home() {
                     </div>
                 </div>
             </section>
+            <footer className="footer">
+                <div className="footer-container-social-media">
+                    <h4 className="footer-subtitle-social-media">REDES SOCIAIS</h4>
+                    <div className="footer-container-icons-social-media">
+                        <i class="footer-icon-social-media 
+                        footer-icon-instagram bi bi-instagram"></i>
+                        <i class="footer-icon-social-media 
+                        footer-icon-instagram bi bi-github"></i>
+                        <i class="footer-icon-social-media 
+                        footer-icon-linkedin bi bi-linkedin"></i>
+                    </div>
+                </div>
+                <div className="footer-container-brand">
+                    <Image 
+                        src="/logo_cesar_augusto.png" 
+                        className="img-logo" 
+                        width="43" 
+                        height="42" 
+                        alt="Logo Cesar Augusto" 
+                    />
+                    <h4 className="footer-subtitle-brand">CESAR AUGUSTO</h4>
+                </div>
+                <div className="footer-container-contact">
+                    <h4 className="footer-subtitle-contact">Contato</h4>
+                    <ul className="footer-list-contact">
+                        <li className="footer-item-contact">Telefone/Whatsapp: 55(11)951700736</li>
+                        <li className="footer-item-contact">Email: cesar.guga2013@gmail.com</li>
+                    </ul>
+                </div>
+            </footer>
         </>
     )
 }
