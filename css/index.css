@@ -234,6 +234,132 @@
     font-weight: 500;
 }
 
+
+
+.section-technologies {
+    background-color: var(--black);
+}
+
+
+
+
+.section-technologies {
+    height: 80vh;
+}
+
+
+.section-projects {
+    min-height: 80vh;
+}
+
+.title-projects {
+    position: relative;
+
+    font-family: 'Orbitron';
+
+    width: max-content;
+    
+    margin: 10px auto;
+}
+
+.title-projects::before {
+    content: '';
+
+    width: 100%;
+    height: 2px;
+
+    position: absolute;
+    bottom: 0;
+
+    background-color: var(--blue);
+}
+.projects-cards {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 30px;
+
+    width: 300px;
+    min-width: 300px;
+    height: 400px;
+
+    cursor: pointer;
+
+    box-shadow: 5px 5px 20px black;
+
+    transition-duration: .5s;
+
+    -webkit-touch-callout: none;  /* iPhone OS, Safari */
+    -webkit-user-select: none;    /* Chrome, Safari 3 */
+    -khtml-user-select: none;     /* Safari 2 */
+    -moz-user-select: none;       /* Firefox */
+    -ms-user-select: none;        /* IE10+ */
+    user-select: none;   
+}
+
+.card:hover {
+    transform: scale(1.05);
+
+    box-shadow: 10px 10px 20px black;
+
+    color: black;
+}
+
+.card:active {
+    transform: scale(0.8);
+
+    box-shadow: 0px 0px 0px black;
+}
+
+.card-body {
+    position: relative;
+
+    padding: 20px;
+}
+.card-img-top{
+    background-color: black;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    height: 40%;
+}
+
+.card-click {
+    float: right;
+
+    display: flex;
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.card-subtitle-click {
+    font-weight: 500;
+
+    margin-right: 10px;
+}
+
+.card-click-hand {
+    font-size: 17px;
+
+    transition-duration: .5s;
+
+    animation-name: anm-card-click-hand;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+
+
 .footer {
     padding: 20px;
 
@@ -328,6 +454,17 @@
     font-family: 'Orbitron', sans-serif;
 }
 
+@keyframes anm-card-click-hand {
+    0% {
+        font-size: 17px;
+    }
+    50% {
+        font-size: 18px;
+    }
+    100% {
+        font-size: 17px;
+    }
+}
 
 
 @media only screen and (max-width: 930px) {

@@ -106,6 +106,76 @@ function Home() {
                     </div>
                 </div>
             </section>
+            <section className="section-technologies">
+
+            </section>
+            <section className="section-projects">
+                <h2 className="title-projects">
+                    PORTIFOLIO
+                </h2>
+                <div className="projects-cards">
+                    <a class="card" href="https://github.com/cesar-augusto-alves-barbosa/Mind6">
+                        <div className="card-img-top">
+                        <Image 
+                            src="/Logo-DotControl-Tec-white.png"
+                            className="card-project-img-controltech card-project-img"
+                            width="170"
+                            height="90"    
+                        />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">.CONTROLTEC</h5>
+                            <p class="card-text">
+                                Esse projeto apresenta o desenvolvimento de um software de monitoração de computadores escolares. 
+                            </p>
+                            <div className="card-click">
+                                <span className="card-subtitle-click">Saiba mais</span>
+                                <i class="card-click-hand bi bi-hand-index-thumb"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="card" href="https://github.com/cesar-augusto-alves-barbosa/Tune-up">
+                        <div className="card-img-top">
+                        <Image 
+                            src="/ems-tuneup-branco.svg"
+                            className="card-project-img-controltech card-project-img"
+                            width="220"
+                            height="120"    
+                        />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">EMS</h5>
+                            <p class="card-text">
+                                Esse projeto apresenta o desenvolvimento de uma plataforma para utilização em oficinas mecânicas. 
+                            </p>
+                            <div className="card-click">
+                                <span className="card-subtitle-click">Saiba mais</span>
+                                <i class="card-click-hand bi bi-hand-index-thumb"></i>
+                            </div>
+                        </div>
+                    </a>
+                    <a class="card" href="https://github.com/cesar-augusto-alves-barbosa/godzilla-local-fIlms">
+                        <div className="card-img-top">
+                        <Image 
+                            src="/Godzilla.png"
+                            className="card-project-img-controltech card-project-img"
+                            width="90"
+                            height="130"    
+                        />
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Godzilla Local Films</h5>
+                            <p class="card-text">
+                            Projeto de desenvolvimento de uma API para uma empresa de locadora de filmes chamada Godzilla.
+                            </p>
+                            <div className="card-click">
+                                <span className="card-subtitle-click">Saiba mais</span>
+                                <i class="card-click-hand bi bi-hand-index-thumb"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
             <footer className="footer">
                 <div className="footer-container-social-media">
                     <h4 className="footer-subtitle-social-media">REDES SOCIAIS</h4>
