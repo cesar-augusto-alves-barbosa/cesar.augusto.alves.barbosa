@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 if (typeof window !== "undefined") {
     window.addEventListener('scroll', () => {
@@ -22,10 +23,52 @@ function openMenu() {
     }
 }
 
+function openTechnologies() {
+    if (typeof window !== "undefined") {
+        var technologiesBox = document.getElementById('technologiesBox');
+        var designBox = document.getElementById('designBox');
+        var textDesignTab = document.getElementById('textDesignTab');
+        var textTechnologieTab = document.getElementById('textTechnologieTab');
+        textTechnologieTab.classList.add("active")
+        textDesignTab.classList.remove("active")
+        designBox.style.height = "0";
+        technologiesBox.style.height = "max-content";
+    }
+}
+
+function openDesigns() {
+        var technologiesBox = document.getElementById('technologiesBox');
+        var designBox = document.getElementById('designBox');
+        var textDesignTab = document.getElementById('textDesignTab');
+        var textTechnologieTab = document.getElementById('textTechnologieTab');
+        textDesignTab.classList.add("active")
+        textTechnologieTab.classList.remove("active")
+        technologiesBox.style.height = "0";
+        designBox.style.height = "max-content";
+}
+
+
 function Home() {
+    const [technologiesJson, setTechnologiesJson] = useState([]);
+    useEffect(() => {
+        fetch("../database/technologies.json")
+        .then(response => {
+            return response.json();
+        })
+        .then(jsonData => {
+            var arrayJson = []
+            for(var i = 0; i < jsonData.Technologies.length; i++) {
+                var jsonString = JSON.stringify(jsonData.Technologies[i]);
+                arrayJson.push(JSON.parse(jsonString));
+            }
+            setTechnologiesJson(arrayJson);
+        })
+    });
+
+
     return (
         <>  
-        <nav id="nav-bar" className="navbar-transparent navbar fixed-top navbar-expand-lg">
+            <nav id="nav-bar" className="navbar-transparent navbar fixed-top navbar-expand-lg">
                     <div className="container-navbar-mobile container-fluid">
                         <a className="navbar-brand nav-bar-mobile nav-bar-mobile-brand" href="/">
                             <Image 
@@ -37,10 +80,10 @@ function Home() {
                             />
                             <div className="title-logo title-logo-mobile">CESAR AUGUSTO</div>
                         </a>
-                        <i onClick={openMenu} class="icon-menu bi bi-list"></i>
+                        <i onClick={openMenu} className="icon-menu bi bi-list"></i>
                     </div>
                     <div id="side-bar" className="container-fluid container-nav-bar nav-side-bar-mobile">
-                        <i onClick={closeMenu} class="icon-close-menu bi bi-arrow-right-short"></i>
+                        <i onClick={closeMenu} className="icon-close-menu bi bi-arrow-right-short"></i>
                         <a className="navbar-brand" href="/">
                             <Image 
                                 src="/logo_cesar_augusto.png" 
@@ -53,12 +96,33 @@ function Home() {
                         </a>
 
                         <li className="nav-list">
-                                <a className="nav-list-item" href="#">SOBRE</a>
-                                <a className="nav-list-item" href="#">PORTIFOLIO</a>
-                                <a className="nav-list-item" href="#">TECNOLOGIAS</a>  
+                                <Link 
+                                id="linkAboutMe" 
+                                className="nav-list-item" 
+                                to="sectionAboutMe"
+                                activeClass={"linkActive"} 
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} >SOBRE</Link>
+                                <Link
+                                activeClass={"linkActive"}
+                                id="linkPortifolio" 
+                                className="nav-list-item"
+                                to="sectionProjects" 
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} >PORTIFOLIO</Link>
+                                <Link
+                                activeClass={"linkActive"}
+                                id="linkTecnologiess" 
+                                className="nav-list-item" 
+                                to="sectionTechnologies" 
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} >TECNOLOGIAS</Link>  
                         </li>
                     </div>   
-                </nav> 
+            </nav> 
             <section className="banner-home">
                 <Image 
                     src="/banner-home.png" 
@@ -72,11 +136,11 @@ function Home() {
                 ></div>
                 <div className="container-titles-banner">
                     <h1 className="title-banner" >CESAR AUGUSTO</h1>
-                    <h3 className="title-banner" >DESENVOLVEDOR FULL STACK</h3>
-                    <h3 className="title-banner subtitle-banner" >Desenvolvendo soluções criativas e inovadoras</h3>
+                    <h3 className="subtitle-banner" >DESENVOLVEDOR FULL STACK</h3>
+                    <h3 className="subtitle-banner" >Desenvolvendo soluções criativas e inovadoras</h3>
                 </div>
             </section>
-            <section className="section-about-me container col-xxl-8 px-4 py-5">
+            <section id="sectionAboutMe" className="section-about-me container col-xxl-8 px-4 py-5">
                 <div className="container-about-me row align-items-center g-5 py-5">
                     <div className="container-image-profile col-10 col-sm-8 col-lg-6">
                         <Image 
@@ -89,32 +153,81 @@ function Home() {
                     <div className="container-paragraphs-about-me col-lg-6">
                         <h1 className="title-about-me display-5 fw-bold lh-1 mb-3">Sobre mim</h1>
                         <p className="paragraph-about-me lead">
-                            Meu nome é Cesar Augusto, tenho 19 anos, sou programador junior, graduado em Análise e Desenvolvimento de Sistemas
-                            na faculdade Bandtec(atual São Paulo Tech School). 
+                            Meu nome é Cesar Augusto, tenho 19 anos, sou programador junior, 
+                            graduado em Análise e Desenvolvimento de Sistemas
+                            na faculdade Bandtec(atual São Paulo Tech School, 2020-2021). 
                             Adquiri um amplo 
                             conhecimento técnico através de projetos 
                             acadêmicos com os principais conceitos 
                             trabalhados no mercado da tecnologia. 
                         </p>
                         <p className="paragraph-about-me lead">
-                            Possuo conhecimentos 
-                            em Metodologia ágil(SCRUM), Java, Spring Framework, 
-                            NodeJS, React, Kotlin, Javascript, SQL Server, MySQL, 
-                            Git, HTML e CSS. Também tenho interesse em outras 
-                            tecnologias que ainda estudo, como React Native, C#, MongoDB.
+                            Trabalhei como estagiário(Analista de suporte) na TIVIT desde Outubro de 2020 até Dezembro
+                            de 2021 e atualmente estou a procura de uma nova oportunidade.
+                            Meu objetivo profissional sempre estudar novas tecnologias, até ser proficiente nelas.
+                            Também tenho interesse em lecionar programação futuramente.
                         </p>
                     </div>
                 </div>
             </section>
-            <section className="section-technologies">
-
+            <section id="sectionTechnologies" className="section-technologies">
+                <h2 className="technologies_title">Tecnologias e Designs de Software</h2>
+                <nav className="technologies_nav nav nav-tabs">
+                    <div onClick={openTechnologies} id="technologieTab" className="nav-item">
+                        <span id="textTechnologieTab" className="technologies_nav_link active nav-link" aria-current="page">Technologias</span>
+                    </div>
+                    <div onClick={openDesigns} id="designTab" className="nav-item">
+                        <div id="textDesignTab" className="technologies_nav_link nav-link">Designs de Software</div>
+                    </div>
+                </nav>
+                <div id="technologiesBox" className="technologies_box">
+                    {
+                        technologiesJson.map((item) => {
+                            return(
+                                <div 
+                                id="technologie" 
+                                className="technologie" 
+                                data-bs-toggle="tooltip" 
+                                data-bs-html="true" 
+                                title={item.time_experience}>
+                                    <Image 
+                                        src={item.icon_src}
+                                        className="technologie_icon"
+                                        width={item.icon_width}
+                                        height={item.icon_height}  
+                                    />
+                                    <span className="technologie_name">{item.name}</span>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div id="designBox" className="designs_box">
+                    <ul className="designs_list">
+                        <li className="designs_item" >Metodologia SCRUM</li>
+                        <li className="designs_item" >Backlogs</li>
+                        <li className="designs_item" >Product Backlogs</li>
+                        <li className="designs_item" >Programação Orientada a Objetos(POO, OO)</li>
+                        <li className="designs_item" >Programação funcional</li>
+                        <li className="designs_item" >UX/UI</li>
+                    </ul>
+                    <ul className="designs_list">
+                        <li className="designs_item" >Diagramas(Classes, DER, MER, BPMN)</li>
+                        <li className="designs_item" >Design de Arquitetura</li>
+                        <li className="designs_item" >Figma</li>
+                        <li className="designs_item" >Wireframes</li>
+                        <li className="designs_item" >HLD/LLD</li>
+                        <li className="designs_item" >User Stories</li>
+                    </ul>
+                </div>
+ 
             </section>
-            <section className="section-projects">
+            <section id="sectionProjects" className="section-projects">
                 <h2 className="title-projects">
                     PORTIFOLIO
                 </h2>
                 <div className="projects-cards">
-                    <a class="card" href="https://github.com/cesar-augusto-alves-barbosa/Mind6">
+                    <a className="card" href="https://github.com/cesar-augusto-alves-barbosa/Mind6">
                         <div className="card-img-top">
                         <Image 
                             src="/Logo-DotControl-Tec-white.png"
@@ -123,18 +236,18 @@ function Home() {
                             height="90"    
                         />
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">.CONTROLTEC</h5>
-                            <p class="card-text">
-                                Esse projeto apresenta o desenvolvimento de um software de monitoração de computadores escolares. 
+                        <div className="card-body">
+                            <h5 className="card-title">.CONTROLTEC</h5>
+                            <p className="card-text">
+                                Software de monitoração de componentes e aplicativos de computadores escolares. 
                             </p>
                             <div className="card-click">
                                 <span className="card-subtitle-click">Saiba mais</span>
-                                <i class="card-click-hand bi bi-hand-index-thumb"></i>
+                                <i className="card-click-hand bi bi-hand-index-thumb"></i>
                             </div>
                         </div>
                     </a>
-                    <a class="card" href="https://github.com/cesar-augusto-alves-barbosa/Tune-up">
+                    <a className="card" href="https://github.com/cesar-augusto-alves-barbosa/Tune-up">
                         <div className="card-img-top">
                         <Image 
                             src="/ems-tuneup-branco.svg"
@@ -143,18 +256,18 @@ function Home() {
                             height="120"    
                         />
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">EMS</h5>
-                            <p class="card-text">
+                        <div className="card-body">
+                            <h5 className="card-title">EMS</h5>
+                            <p className="card-text">
                                 Esse projeto apresenta o desenvolvimento de uma plataforma para utilização em oficinas mecânicas. 
                             </p>
                             <div className="card-click">
                                 <span className="card-subtitle-click">Saiba mais</span>
-                                <i class="card-click-hand bi bi-hand-index-thumb"></i>
+                                <i className="card-click-hand bi bi-hand-index-thumb"></i>
                             </div>
                         </div>
                     </a>
-                    <a class="card" href="https://github.com/cesar-augusto-alves-barbosa/godzilla-local-fIlms">
+                    <a className="card" href="https://github.com/cesar-augusto-alves-barbosa/godzilla-local-fIlms">
                         <div className="card-img-top">
                         <Image 
                             src="/Godzilla.png"
@@ -163,14 +276,14 @@ function Home() {
                             height="130"    
                         />
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Godzilla Local Films</h5>
-                            <p class="card-text">
+                        <div className="card-body">
+                            <h5 className="card-title">Godzilla Local Films</h5>
+                            <p className="card-text">
                             Projeto de desenvolvimento de uma API para uma empresa de locadora de filmes chamada Godzilla.
                             </p>
                             <div className="card-click">
                                 <span className="card-subtitle-click">Saiba mais</span>
-                                <i class="card-click-hand bi bi-hand-index-thumb"></i>
+                                <i className="card-click-hand bi bi-hand-index-thumb"></i>
                             </div>
                         </div>
                     </a>
@@ -180,12 +293,22 @@ function Home() {
                 <div className="footer-container-social-media">
                     <h4 className="footer-subtitle-social-media">REDES SOCIAIS</h4>
                     <div className="footer-container-icons-social-media">
-                        <i class="footer-icon-social-media 
-                        footer-icon-instagram bi bi-instagram"></i>
-                        <i class="footer-icon-social-media 
-                        footer-icon-instagram bi bi-github"></i>
-                        <i class="footer-icon-social-media 
-                        footer-icon-linkedin bi bi-linkedin"></i>
+                        <a className="footer_link_social_media" href="https://www.instagram.com/cesar.guga2013/" ><i 
+                            className="footer-icon-social-media 
+                            footer-icon-instagram bi bi-instagram"></i></a>
+                        <a className="footer_link_social_media" href="https://github.com/cesar-augusto-alves-barbosa">
+                            <i  
+                            className="footer-icon-social-media 
+                            footer-icon-github bi bi-github"></i>
+                        </a>
+                        <a className="footer_link_social_media" href="https://www.linkedin.com/in/cesar-augusto-b55b7b1a5/" > 
+                            <i 
+                            className="footer-icon-social-media 
+                            footer-icon-linkedin bi bi-linkedin"></i>
+                        </a>
+                        
+                        
+                       
                     </div>
                 </div>
                 <div className="footer-container-brand">

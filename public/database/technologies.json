@@ -1,0 +1,109 @@
+{   
+    "Technologies": [
+    {
+        "name": "Java",
+        "icon_src": "/logos_technologies/java.png",
+        "icon_width": 90,
+        "icon_height": 90,
+        "time_experience": "1 ano e 6 meses"
+    },
+    {
+        "name": "Spring Boot",
+        "icon_src": "/logos_technologies/spring_boot.png",
+        "icon_width": 80,
+        "icon_height": 70,
+        "time_experience": "1 ano e 3 meses"
+    },
+    {
+        "name": "React",
+        "icon_src": "/logos_technologies/react.png",
+        "icon_width": 70,
+        "icon_height": 60,
+        "time_experience": "1 ano"
+    },
+    {
+        "name": "Kotlin",
+        "icon_src": "/logos_technologies/kotlin.png",
+        "icon_width": 60,
+        "icon_height": 60,
+        "time_experience": "6 meses"
+    },
+    {
+        "name": "SQL Server",
+        "icon_src": "/logos_technologies/sql_server.png",
+        "icon_width": 90,
+        "icon_height": 90,
+        "time_experience": "1 ano e 6 meses"
+    },
+    {
+        "name": "My SQL",
+        "icon_src": "/logos_technologies/my_sql.png",
+        "icon_width": 90,
+        "icon_height": 90,
+        "time_experience": "2 anos"
+    },
+    {
+        "name": "HTML",
+        "icon_src": "/logos_technologies/html.png",
+        "icon_width": 70,
+        "icon_height": 70,
+        "time_experience": "2 anos e 6 meses"
+    },
+    {
+        "name": "CSS",
+        "icon_src": "/logos_technologies/css.png",
+        "icon_width": 70,
+        "icon_height": 70,
+        "time_experience": "2 anos e 6 meses"
+    },
+    {
+        "name": "Javascript",
+        "icon_src": "/logos_technologies/javascript.png",
+        "icon_width": 75,
+        "icon_height": 75,
+        "time_experience": "2 anos e 6 meses"
+    },
+    {
+        "name": "Git e Github",
+        "icon_src": "/logos_technologies/git.png",
+        "icon_width": 70,
+        "icon_height": 70,
+        "time_experience": "2 anos"
+    },
+    {
+        "name": "AWS EC2",
+        "icon_src": "/logos_technologies/aws.png",
+        "icon_width": 80,
+        "icon_height": 60,
+        "time_experience": "1 anos e 6 meses"
+    },
+    {
+        "name": "C#",
+        "icon_src": "/logos_technologies/csharp.png",
+        "icon_width": 70,
+        "icon_height": 70,
+        "time_experience": "6 meses"
+    },
+    {
+        "name": ".NET",
+        "icon_src": "/logos_technologies/dot_net.png",
+        "icon_width": 70,
+        "icon_height": 70,
+        "time_experience": "6 meses"
+    },
+    {
+        "name": "MongoDB",
+        "icon_src": "/logos_technologies/mongo_db.png",
+        "icon_width": 80,
+        "icon_height": 60,
+        "time_experience": "1 mês"
+    },
+    {
+        "name": "React Native",
+        "icon_src": "/logos_technologies/react_native.png",
+        "icon_width": 80,
+        "icon_height": 70,
+        "time_experience": "1 mês"
+    }
+]
+}
