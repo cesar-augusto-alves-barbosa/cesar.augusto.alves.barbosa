@@ -375,8 +375,6 @@
     border: 3px solid white;
     border-radius: 10px;
 
-    padding-top: 10px;
-
     box-shadow: 0px 0px 5px white;
 }
 .technologie_description {
@@ -387,8 +385,7 @@
 
     transition-duration: .5s;
 
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
 
     width: 100%;
     
@@ -402,12 +399,22 @@
 }
 
 .technologie:hover .technologie_description {
+    height: 100%;
+    
     background-color: white;
     color: black;
 } 
 
 .technologie:hover  .technologie_time {
     display: block;
+}
+
+.technologie:hover .technologie_icon {
+    display: none!important;
+}
+
+.technologie:hover  img {
+    display: none!important;
 }
 
 .technologie_name{
