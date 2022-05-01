@@ -50,8 +50,9 @@ function openDesigns() {
 
 function Home() {
     const [technologiesJson, setTechnologiesJson] = useState([]);
+
     useEffect(() => {
-        fetch("../database/technologies.json")
+		fetch("../database/technologies.json")
         .then(response => {
             return response.json();
         })
@@ -63,7 +64,7 @@ function Home() {
             }
             setTechnologiesJson(arrayJson);
         })
-    });
+	}, [])
 
 
     return (
@@ -187,8 +188,6 @@ function Home() {
                                 <div 
                                 id="technologie" 
                                 className="technologie" 
-                                data-bs-toggle="tooltip" 
-                                data-bs-html="true" 
                                 title={item.time_experience}>
                                     <Image 
                                         src={item.icon_src}
@@ -196,7 +195,11 @@ function Home() {
                                         width={item.icon_width}
                                         height={item.icon_height}  
                                     />
-                                    <span className="technologie_name">{item.name}</span>
+                                    <div className="technologie_description">
+                                        <span className="technologie_name">{item.name}</span>
+                                        <span className="technologie_time">Experiência:</span>
+                                        <span className="technologie_time">{item.time_experience}</span>
+                                    </div>
                                 </div>
                             )
                         })
