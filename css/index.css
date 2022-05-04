@@ -876,23 +876,20 @@
 
         margin-right: 10px;
     }
-    .section-about-me {
-        display: flex;
-        justify-content: center;
+
+    .subtitle-banner {
+        font-size: 13px;
     }
-    .container-about-me {
-        width: 100%;
-    }
+
     .title-about-me {
         font-size: 20px;
 
         width: max-content;
     }
     
-    .paragraph-about-me {
-        width: 80%;
-
-        font-size: 12px;
+    .paragraph-about-me,
+    .paragraph-about-me-bottom {
+        font-size: 12px!important;
     }
 }
 
