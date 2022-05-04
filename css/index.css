@@ -211,18 +211,32 @@
     padding: 0!important;
 
     display: flex;
+    justify-content: center;
     align-items: center;
 
     min-height: 100vh;
 }
 
 .container-about-me {
-    justify-content: center;
+    padding: 0!important;
+
+    margin-top: 20px;
+
+    width: 90%;
+
+    align-items: center!important;
+    justify-content: space-between!important;
 }
 
 .container-image-profile {
     display: flex;
     justify-content: center;
+
+    width: max-content;
+
+    margin: 0;
+    margin-left: 70px;
+    padding: 0;
 }
 
 .container-image-profile span {
@@ -243,20 +257,43 @@
 
 .container-paragraphs-about-me {
     padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .title-about-me {
     font-size: 30px;
+
+    margin: 0!important;
 }
 
-.paragraph-about-me {
-    font-size: 16px;
+.paragraph-about-me{
+    margin: 20px 0;
+    padding: 0;
 
     text-align: justify;
 
+    font-size: 16px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
 }
+
+.paragraph-about-me-bottom {
+    margin: 0;
+    padding: 0;
+
+    margin-top: 30px;
+
+    text-align: justify;
+
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
 
 
 
@@ -675,9 +712,6 @@
     margin: 0!important;
     text-decoration: none!important;
 }
-
-
-
 .footer-subtitle-contact,
 .footer-subtitle-brand,
 .footer-subtitle-social-media {
@@ -699,6 +733,23 @@
 }
 
 
+@media only screen and (max-width: 991px) {
+    .container-about-me {
+        margin: 40px 0!important;
+
+        align-items: center!important;
+        justify-content: center!important;
+    }
+    .container-paragraphs-about-me {
+        margin-top: 20px;
+    }
+    
+    .container-image-profile  {
+        margin: 0;
+    }
+}
+
+
 @media only screen and (max-width: 930px) {
 
     .footer {
@@ -708,14 +759,6 @@
         width: 40px!important;
         height: 39px!important;
     }
-    .container-paragraphs-about-me {
-        width: 80%;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    } 
-
     .title-banner:nth-child(1) {
         font-size: 20px;
     }

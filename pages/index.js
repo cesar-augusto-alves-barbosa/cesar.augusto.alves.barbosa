@@ -162,13 +162,19 @@ function Home() {
                             acadêmicos com os principais conceitos 
                             trabalhados no mercado da tecnologia. 
                         </p>
-                        <p className="paragraph-about-me lead">
-                            Trabalhei como estagiário(Analista de suporte) na TIVIT desde Outubro de 2020 até Dezembro
-                            de 2021 e atualmente estou a procura de uma nova oportunidade.
-                            Meu objetivo profissional sempre estudar novas tecnologias, até ser proficiente nelas.
-                            Também tenho interesse em lecionar programação futuramente.
-                        </p>
                     </div>
+                    <p className="paragraph-about-me-bottom lead">
+                            Para entender um pouco mais da minha trajetória, é preciso explicar um pouco mais
+                            sobre a faculdade em que me formei. Nela, no primeiro semestre, somente estudamos
+                            e nosso perfil é avaliado. Com base nessa avaliação, ao passar para o segundo semestre
+                            automaticamente passamos a ser estagiários em uma empresa parceira da faculdade,
+                            no meu caso entrei na Tivit onde atuei como analista de suporte desde outubro de 2020
+                            até dezembro de 2021. Além disso, não fazemos o Trabalho de Conclusão de Curso(TCC),
+                            nesse caso a cada semestre a faculdade nos desafia a criar uma aplicação
+                            para resolver necessidades atuais do nosso cotidiano, como é o caso do projeto
+                            Tune-up, com as tecnologias que nos passarão no decorrer do semestre. Com isso,
+                            pude atuar em 4 projetos inteiramente ligados a tecnologia.
+                    </p>
                 </div>
             </section>
             <section id="sectionTechnologies" className="section-technologies">
