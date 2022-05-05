@@ -161,21 +161,27 @@ function Home() {
                             conhecimento técnico através de projetos 
                             acadêmicos com os principais conceitos
                             trabalhados no mercado da tecnologia. 
+                            Para entender um pouco mais da minha trajetória, 
+                            é preciso explicar um pouco mais
+                            sobre a faculdade em que me formei. 
                         </p>
                     </div>
                     <p className="paragraph-about-me-bottom lead">
-                            Para entender um pouco mais da minha trajetória, é preciso explicar um pouco mais
-                            sobre a faculdade em que me formei. Nela, no primeiro semestre, somente estudamos
-                            e nosso perfil é avaliado. Com base nessa avaliação, ao passar para o segundo semestre
-                            automaticamente entramos como estagiários em uma empresa parceira da faculdade,
-                            no meu caso entrei na Tivit onde atuei como analista de suporte desde outubro de 2020
-                            até dezembro de 2021. Além disso, não fazemos o Trabalho de Conclusão de Curso(TCC),
+                            Nela, no primeiro semestre, somente estudamos
+                            e nosso perfil é avaliado. Com base nessa avaliação, ao passar para 
+                            o segundo semestre automaticamente entramos como estagiários em 
+                            uma empresa parceira da faculdade, no meu caso entrei na Tivit onde 
+                            atuei como analista de suporte desde outubro de 2020 até dezembro de 2021. Além disso, não fazemos o Trabalho de Conclusão de Curso(TCC),
                             nesse caso a cada semestre a faculdade nos desafia a criar uma aplicação
-                            para resolver necessidades atuais do nosso cotidiano, como é o caso do projeto
-                            Tune-up, com as tecnologias que nos passarão no decorrer do semestre. Com isso,
-                            pude atuar em 4 projetos inteiramente ligados ao mercado da tecnologia, que você pode conferir os principais
-                            abaixo no meu portfólio ou no <a className="about-me-link-github" href="https://github.com/cesar-augusto-alves-barbosa">github</a>.
-                            Hoje busco uma oportunidade de me desenvolver profissionalmente e demonstrar a minha capacidade,
+                            para resolver necessidades atuais do nosso cotidiano, como é o caso 
+                            do projeto Tune-up, com as tecnologias que nos passarão no decorrer 
+                            do semestre. Com isso, pude atuar em 4 projetos inteiramente ligados 
+                            ao mercado da tecnologia, que você pode conferir os principais
+                            abaixo no meu portfólio ou no 
+                            <a className="about-me-link-github" 
+                            href="https://github.com/cesar-augusto-alves-barbosa">github</a>.
+                            Hoje busco uma oportunidade de me desenvolver profissionalmente e 
+                            demonstrar a minha capacidade,
                             atuando como desenvolvedor Junior/Trainee.
                     </p>
                 </div>
