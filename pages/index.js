@@ -112,7 +112,7 @@ function Home() {
                                 to="sectionProjects" 
                                 spy={true} 
                                 smooth={true} 
-                                duration={500} >PORTIFOLIO</Link>
+                                duration={500} >PORTFÓLIO</Link>
                                 <Link
                                 activeClass={"linkActive"}
                                 id="linkTecnologiess" 
@@ -174,7 +174,7 @@ function Home() {
                             para resolver necessidades atuais do nosso cotidiano, como é o caso do projeto
                             Tune-up, com as tecnologias que nos passarão no decorrer do semestre. Com isso,
                             pude atuar em 4 projetos inteiramente ligados ao mercado da tecnologia, que você pode conferir os principais
-                            abaixo no meu portifolio ou no <a className="about-me-link-github" href="https://github.com/cesar-augusto-alves-barbosa">github</a>.
+                            abaixo no meu portfólio ou no <a className="about-me-link-github" href="https://github.com/cesar-augusto-alves-barbosa">github</a>.
                             Hoje busco uma oportunidade de me desenvolver profissionalmente e demonstrar a minha capacidade,
                             atuando como desenvolvedor Junior/Trainee.
                     </p>
@@ -236,7 +236,7 @@ function Home() {
             </section>
             <section id="sectionProjects" className="section-projects">
                 <h2 className="title-projects">
-                    PORTIFOLIO
+                    PORTFÓLIO
                 </h2>
                 <div className="projects-cards">
                     <a className="card" href="https://github.com/cesar-augusto-alves-barbosa/Mind6">
