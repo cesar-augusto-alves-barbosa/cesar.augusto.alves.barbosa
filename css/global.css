@@ -11,7 +11,7 @@
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif!important;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -31,7 +31,7 @@ a:hover {
 }
 
 body {
-    background-color: var(--black);
+    background-color: var(--black)!important;
     overflow-x: hidden;
 }
 
