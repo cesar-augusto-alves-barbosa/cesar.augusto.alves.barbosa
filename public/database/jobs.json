@@ -1,0 +1,51 @@
+{
+    "jobs": [
+      
+      {
+        "title": "Desenvolvedor Junior",
+        "company": "Minsait · Tempo integral",
+        "duration": "1 ano 11 meses",
+        "period": "De junho de 2022 até abril de 2024 · São Paulo, Brasil",
+        "responsibilities": [
+          "Atuação na equipe de Sustentação de sistemas",
+          "Análise, correção e melhoria de código",
+          "Levantamento de causa raiz",
+          "Identificação e análise de incidentes e Suporte em N3",
+          "Tratativa através da ferramenta Vivo Now",
+          "Criação e monitoração com o Grafana",
+          "Criação de scripts, Triggers, Jobs, Procedures",
+          "Agile - Jira / Scrum",
+          "Documentação das implementações realizadas",
+          "Treinamento de novos colaboradores"
+        ],
+        "technologies": [
+          "Java 7 / Java 8",
+          "Spring boot",
+          "Eclipse / Intellij",
+          "Oracle SQL / SQL Server",
+          "Git",
+          "Grafana",
+          "Postman / SoapUI",
+          "Kafka",
+          "Mobaxterm",
+          "Kubernetes",
+          "Azure DevOps"
+        ]
+      },
+      {
+        "title": "Estagiário em Digital Business",
+        "company": "TIVIT · Estágio",
+        "duration": "1 ano 4 meses",
+        "period": "De setembro de 2020 até dez de 2021 · São Paulo, Brasil",
+        "description": "Estágio de Analista de Suporte N2",
+        "responsibilities": [
+          "Auxilio na sustentação de aplicações",
+          "Auxilio no desenvolvimento de melhorias e novas funcionalidades",
+          "Auxilio na modernização de aplicações e legados"
+        ],
+        "technologies": [
+          "Excel"
+        ]
+      }
+    ]
+  }

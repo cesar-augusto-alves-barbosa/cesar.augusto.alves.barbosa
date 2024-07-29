@@ -4,12 +4,14 @@
 :root {
     --blue: #1F9AFF;
     --white: #FFF;
+    --gray-light: #DDD;
+    --soft-gray:#1F1F1F;
     --gray: #0E0E0E;
     --black: #000000
 }
 
 * {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,11 +22,16 @@
 }
 
 a {
-    color: var(--black);
-    text-decoration: none;
+    color: var(--white);
+    text-decoration: none!important;
+}
+
+a:hover {
+    color: var(--white);
 }
 
 body {
+    background-color: var(--black);
     overflow-x: hidden;
 }
 

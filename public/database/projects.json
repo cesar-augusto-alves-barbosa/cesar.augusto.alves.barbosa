@@ -1,0 +1,31 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": ".CONTROLTEC",
+      "description": "Software de monitoração de componentes e aplicativos de computadores escolares.",
+      "imageUrl": "/images/Logo-DotControl-Tec-white.svg",
+      "technologies": ["Java", "Oshi Api", "NodeJS", "AzureDB"],
+      "width": 785,
+      "height": 400
+    },
+    {
+      "id": 2,
+      "title": "EMS",
+      "description": "Esse projeto apresenta o desenvolvimento de uma plataforma para utilização em oficinas mecânicas.",
+      "imageUrl": "/images/ems-tuneup-branco.svg",
+      "technologies": ["Java", "Spring Boot", "Kotlin", "MySQL"],
+      "width": 220,
+      "height": 120
+    },
+    {
+      "id": 3,
+      "title": "Godzilla Local Films",
+      "description": "Projeto de desenvolvimento de uma API para uma empresa de locadora de filmes chamada Godzilla.",
+      "imageUrl": "/images/Godzilla.svg",
+      "technologies": ["Java", "Spring Boot", "MySQL", "H2 Database"],
+      "width": 400,
+      "height": 200
+    }
+  ]
+}

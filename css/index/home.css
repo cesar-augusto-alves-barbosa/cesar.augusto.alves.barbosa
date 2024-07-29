@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .navbar-transparent {
     position: fixed;
 
@@ -6,6 +7,9 @@
     height: 100px;
 
     padding: 0!important;
+
+    animation-name: anm-navbar;
+    animation-duration: 5s;
 }
 
 .icon-menu {
@@ -27,6 +31,10 @@
 
     background-image: none;
     background-color: var(--gray);
+
+    box-shadow: 0px 1px 10px var(--blue);
+
+    z-index: 2;
 }
 
 .nav-bar-mobile-brand span{
@@ -35,16 +43,10 @@
 }
 
 .title-logo-mobile {
+    
     font-size: 14px!important;
 }
 
-.navbar-transparent a {
-    color: var(--white);
-
-    font-size: 15px;
-
-    text-decoration: none;
-}
 
 .container-nav-bar {
     width: 100%;
@@ -64,6 +66,8 @@
 
 .navbar-brand .title-logo {
     position: relative;
+
+    color: var(--white);
 
     margin-left: 20px;
 
@@ -86,11 +90,14 @@
     text-align: center;
     text-decoration: none;
 
+    font-weight: normal;
+    font-size: 17px;
+
     margin-left: 30px;
 
-    font-family: 'Orbitron', sans-serif;
-
     cursor: pointer;
+
+    color: var(--white);
 }
 
 .linkActive {
@@ -148,415 +155,56 @@
     display: none!important;
 }
 
-.banner-home{
-    height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    flex-direction: column;
-
-    position: relative;
-
-    text-align: center;
-}
-
-.img-background-banner {
-    z-index: -1;
-
-    filter: brightness(50%);
-}
-
-.img-logo-banner {
-    height: 85px;
-    width: 95px;
-
-    background-image: url('/logo_lrg_cesar_augusto.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.container-titles-banner {
-    color: var(--white);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    margin-top: 40px;
-}
-
-.title-banner:nth-child(1) {
-    font-size: 30px;
-}
-
-.title-banner,
-.subtitle-banner {
-    margin: 10px;
-    font-size: 20px;
-}
-
-.title-banner {
-    font-family: 'Orbitron', sans-serif;
-}
-
-.subtitle-banner {
-    letter-spacing: 5px;
-}
-
-
-
-.section-about-me {
-    padding: 0!important;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    min-height: 100vh;
-}
-
-.container-about-me {
-    padding: 0!important;
-
-    margin-top: 20px;
-
-    width: 90%;
-
-    align-items: center!important;
-    justify-content: space-between!important;
-}
-
-.container-image-profile {
-    display: flex;
-    justify-content: center;
-
-    width: max-content;
-
-    margin: 0;
-    margin-left: 70px;
-    padding: 0;
-}
-
-.container-image-profile span {
-    border: 3px solid black;
-    box-shadow: 0px 0px 10px black;
-    border-radius: 8px;
-
-    transition-duration: .5s;
-
-    width: 200px!important;
-}
-
-.image-profile-about-me {
-    pointer-events: none;
-}
-
-.container-image-profile span:hover {
-    transform: scale(1.05);
-}
-
-.container-paragraphs-about-me {
-    padding: 0;
-    margin: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 65%;
-}
-
-.title-about-me {
-    font-size: 30px;
-
-    margin: 0!important;
-}
-
-.paragraph-about-me{
-    margin: 20px 0;
-    padding: 0;
-
-    text-align: justify;
-
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-}
-
-.paragraph-about-me-bottom {
-    margin: 0;
-    padding: 0;
-
-    text-align: justify;
-
-    font-size: 16px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-}
-
-.about-me-link-github {
-    color: var(--blue);
-
-    text-decoration: underline;
-}
-
-
-
-
-
-.section-technologies {
-    background-color: var(--gray);
-}
-
-.section-technologies {
-    color: var(--white);
-
-    display: flex;
-    flex-direction: column;
-
-    width: 100%;
-    min-height: 100vh;
-
-    position: relative;
-}
-
-.technologies_title {
-    font-family: 'Orbitron';
-    font-size: 26px;
-
-    text-align: center;
-    margin: 0px auto;
-
-    padding: 20px;
-
-    position: relative;
-
-    width: 100%;
-    height: 100%;
-
-    text-transform: uppercase;
-    
-    background-color: black;
-}
-
-.technologies_nav {
-    background-color: black;
-
-    border-bottom: 0;
-}
-
-.technologies_nav_link {
-    font-family: 'Orbitron'!important;
-
-    background-color:#c1c1c1!important;
-    
-    color: black;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    margin-right: 5px;
-}
-
-.technologies_nav_link:hover {
-    border: none;
-    color: black;
-}
-
-.active {
-    background-color: var(--gray)!important;
-    border-bottom: 0!important;
-
-    color: white!important;
-    font-weight: 600!important;
-
-    transition-duration: .5s!important;
-}
-
-.active:hover {
-    border: 1px solid white;
-    border-bottom: none;
-    
-    color: white;
-}
-
-.technologies_box {
-    width: 80%;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    align-self: center;
-    flex-wrap: wrap;
-
-    margin: 20px auto;
-}
-
-.technologie {
-    width: 120px;
-    height: 115px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-
-    cursor: default;
-
-    margin: 30px;
-
-    transition-duration: .5s;
-}
-
-.technologie:hover {
-    width: 150px;
-    height: 175px;
-
-    border: 3px solid white;
-    border-radius: 10px;
-
-    box-shadow: 0px 0px 5px white;
-}
-.technologie_description {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    transition-duration: .5s;
-
-    border-radius: 5px;
-
-    width: 100%;
-    
-    padding: 5px;
-}
-
-.technologie_time {
-    display: none;
-
-    font-size: 15px;
-}
-
-.technologie:hover .technologie_description {
-    height: 100%;
-    
-    background-color: white;
-    color: black;
-} 
-
-.technologie:hover  .technologie_time {
-    display: block;
-}
-
-.technologie:hover .technologie_icon {
-    display: none!important;
-}
-
-.technologie:hover  img {
-    display: none!important;
-}
-
-.technologie_name{
-    width: max-content;
-
-    font-weight: 500;
-
-    position: relative;
-}
-
-.technologie:hover .technologie_name{
- font-weight: 600;
-}
-
-
-.designs_box {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
-    width: 100%;
-    height: 0;
-
-    overflow: hidden;
-}
-.designs_list {
-    width: max-content;
-
-    margin: 0 30px;
-
-    padding: 0!important;
-}
-
-.designs_item {
-    transition-duration: .5s;
-
-    cursor: default;
-
-    margin: 30px 0!important;
-
-    width: max-content;
-}
-
-.designs_item:hover {
-    transform: scale(1.1);
-    font-weight: 600;
-}
-
 
 
 
 .section-projects {
     min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .title-projects {
     position: relative;
 
-    font-family: 'Orbitron';
+    font-family: 'Poppins';
+    
+    color: var(--gray-light);
 
     width: max-content;
     
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
-.title-projects::before {
-    content: '';
-
-    width: 100%;
-    height: 2px;
-
-    position: absolute;
-    bottom: 0;
-
-    background-color: var(--blue);
-}
 .projects-cards {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+
+    margin-bottom: 80px;
 }
 
 .card {
     margin: 30px;
 
-    width: 300px;
-    min-width: 300px;
+    width: 25%;
+    min-width: 400px;
     height: 400px;
 
-    cursor: pointer;
+    color: var(--gray-light)!important;
 
-    box-shadow: 5px 5px 20px black;
+    background-color: var(--gray);
 
-    color: black!important;
+    border: 3px solid var(--soft-gray);
+    border-radius: 30px;
 
     transition-duration: .5s;
+
+    cursor: pointer;
 
     text-decoration: none!important;
 
@@ -569,37 +217,103 @@
 }
 
 .card:hover {
-    transform: scale(1.05);
-
-    box-shadow: 10px 10px 20px black;
-
-    color: black;
+    transform: scale(1.04);
 }
 
-.card:active {
-    transform: scale(0.8);
 
-    box-shadow: 0px 0px 0px black;
-    color: black!important;
-}
-
-.card-body {
+.card-box-img {
     position: relative;
 
-    padding: 20px;
-    color: black!important;
+    height: 40%;
+
+    overflow: hidden;
+
+    border-radius: 30px;
+    border-bottom-right-radius: 0px;
 }
+
 .card-img-top{
-    background-color: black;
+    background-color: var(--gray);
+
+    border-bottom-right-radius: 30px;
+
+    padding: 30px;
+    box-sizing: border-box;
     
     display: flex;
     justify-content: center;
     align-items: center;
 
+    height: 100%;
+}
+
+.card-img-top::after {
+    content: ' ';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 70px 70px 0 40px var(--soft-gray);
+}
+
+.card-body {
+    position: relative;
+
+    border-top-left-radius: 30px;
+
+    background-color: var(--soft-gray);
+
     padding: 20px;
 
-    height: 40%;
+    border-radius: 20px;
+    border-top-right-radius: 0px;
 }
+
+.project-card-box-desc-tech {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.project-card-box-desc {
+    width: 50%;
+}
+
+.card-title {
+    width: max-content;
+}
+
+.project-card-box-tech {
+    width: 45%;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin-top: 30px;
+}
+
+.project-card-technology {
+    background-color: var(--blue);
+    width: max-content!important;
+    height: max-content;
+
+    box-sizing: border-box;
+
+    padding: 8px;
+    margin: 5px;
+
+    border: 2px solid var(--blue);
+    border-radius: 20px;
+    background-color: rgb(31, 154, 255, 0.6);
+
+    font-size: 12px;
+}
+
 
 .card-click {
     float: right;
@@ -609,27 +323,34 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
-    color: black!important;
 }
 
 .card-subtitle-click {
     font-weight: 500;
 
     margin-right: 10px;
-    color: black!important;
 }
 
 .card-click-hand {
-    font-size: 17px;
-
     transition-duration: .5s;
+}
 
-    animation-name: anm-card-click-hand;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
+.project-card-link {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    align-self: center;
+    width: max-content;
+    margin: 10px;
+    transition-duration: .2s;
+    transform: translateY(10px);
 }
 
 
+.card:hover .project-card-link {
+    opacity: 1;
+    transform: translateY(0px);
+}
 
 .footer {
     padding: 20px;
@@ -641,7 +362,9 @@
     flex-wrap: wrap;
 
     color: var(--white);
-    background-color: var(--black);
+    background-color: var(--gray);
+
+    box-shadow: 0px 1px 10px var(--blue);
 }
 
 .footer-container-social-media {
@@ -730,15 +453,21 @@
     font-family: 'Orbitron', sans-serif;
 }
 
-@keyframes anm-card-click-hand {
-    0% {
-        font-size: 17px;
+@media only screen and (max-width: 1570px) {
+    .container-about-me {
+        margin: 40px 0!important;
+
+        align-items: center!important;
+        justify-content: center!important;
     }
-    50% {
-        font-size: 18px;
+    .container-paragraphs-about-me {
+        width: max-content;
+
+        margin-top: 20px;
     }
-    100% {
-        font-size: 17px;
+    
+    .container-image-profile  {
+        margin: 0;
     }
 }
 
@@ -778,6 +507,10 @@
     .title-banner {
         font-size: 15px;
     }
+
+    .card {
+        min-width: 400px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -790,13 +523,13 @@
     .footer {
         flex-direction: column;
     }
-    .technologies_title {
+    .technologys_title {
         width: 300px;
 
         font-size: 15px;
     }
 
-    .technologies_title::before {
+    .technologys_title::before {
         display: none;
     }
 
@@ -903,8 +636,55 @@
     .paragraph-about-me-bottom {
         font-size: 12px!important;
     }
+
+    .card {
+        min-width: 300px;
+        height: max-content;
+        margin: 10px;
+    }
+
+    .rocket-conteiner-scene {
+        min-width: auto;
+    }
+
+
+    .project-card-box-desc-tech {
+        flex-wrap: wrap;
+    }
+
+    .project-card-box-desc{
+        min-width: 177px;
+    }
+
+    .project-card-box-tech {
+        width: 100%;
+
+        justify-content: flex-start;
+
+        margin-bottom: 20px;
+    }
 }
 
+@keyframes anm-navbar {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes anm-blobs {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
 
 @media only screen and (max-width: 375px) {
     .navbar-brand img {

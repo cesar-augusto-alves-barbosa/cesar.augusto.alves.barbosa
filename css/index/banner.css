@@ -1,0 +1,147 @@
+.banner-home{
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+
+    position: relative;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    animation-name: anm-titles-banner;
+    animation-duration: 4s;
+}
+
+
+.blob-box {
+    position: absolute;
+
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-blob-banner-home-left {
+    width: 27vw;
+    height: 25vh;
+
+    animation-name: anm-blobs;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+    transform: translate(-10vw, 20vh) rotate(180deg);
+
+    align-self: baseline;
+}
+
+.img-blob-banner-home-right {
+    width: 27vw;
+    height: 25vh;
+
+    animation-name: anm-blobs;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+    transform: translate(10vw, 55vh);
+}
+
+
+
+
+.img-background-banner {
+    z-index: -1;
+
+    filter: brightness(50%);
+}
+
+.img-logo-banner {
+    height: 85px;
+    width: 95px;
+
+    background-image: url('/images/logo_lrg_cesar_augusto.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-titles-banner {
+    color: var(--white);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 40px;
+}
+
+.title-banner:nth-child(1) {
+    font-size: 30px;
+
+    font-family: 'Orbitron', sans-serif;
+}
+
+.title-banner,
+.subtitle-banner {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.title-banner {
+    animation-name: anm-titles-banner;
+    animation-duration: 5s;
+}
+
+.subtitle-banner {
+    animation-name: anm-titles-banner;
+    animation-duration: 10s;
+
+    letter-spacing: 5px;
+}
+
+.dowloadcv-button-banner {
+    background-color: var(--blue);
+    width: max-content!important;
+    height: max-content;
+
+    color: var(--gray-light);
+
+    box-sizing: border-box;
+
+    padding: 8px;
+    margin: 20px;
+
+    border: 2px solid var(--blue);
+    border-radius: 20px;
+    background-color: rgb(31, 154, 255, 0.6);
+
+    transition-duration: 0.2s;
+
+    animation-name: anm-titles-banner;
+    animation-duration: 10s;
+}
+
+.dowloadcv-button-banner:hover {
+    color: var(--white);
+
+    transform: scale(1.1);
+}
+
+@keyframes anm-titles-banner {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

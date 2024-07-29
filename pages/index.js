@@ -1,79 +1,141 @@
-import React, {useEffect, useState} from "react";
-import Image from "next/image";
-import { Link, animateScroll as scroll } from "react-scroll";
+import React, { useEffect, useState } from "react";
+import Image from "next/future/image";
+import Job from "../components/Job.js";
+import { RiRocketFill } from "react-icons/ri";
+import { FaGithub } from "react-icons/fa6";
+import { Link } from "react-scroll";
+import { useInView } from "react-intersection-observer";
+import ProjectCard from '../components/ProjectCard';
 
 if (typeof window !== "undefined") {
     window.addEventListener('scroll', () => {
-        var nav = document.getElementById('nav-bar')
-        nav.classList.toggle('sticky-nav', window.scrollY > 0)
-    })
+        var nav = document.getElementById('nav-bar');
+        nav.classList.toggle('sticky-nav', window.scrollY > 200);
+    });
 }
 
 function closeMenu() {
     if (typeof window !== "undefined") {
-        var nav = document.getElementById('side-bar')
-        nav.style.display = "none"
+        var nav = document.getElementById('side-bar');
+        nav.style.display = "none";
     }
 }
 
 function openMenu() {
     if (typeof window !== "undefined") {
-        var nav = document.getElementById('side-bar')
-        nav.style.display = "flex"
+        var nav = document.getElementById('side-bar');
+        nav.style.display = "flex";
     }
 }
-
-function openTechnologies() {
-    if (typeof window !== "undefined") {
-        var technologiesBox = document.getElementById('technologiesBox');
-        var designBox = document.getElementById('designBox');
-        var textDesignTab = document.getElementById('textDesignTab');
-        var textTechnologieTab = document.getElementById('textTechnologieTab');
-        textTechnologieTab.classList.add("active")
-        textDesignTab.classList.remove("active")
-        designBox.style.height = "0";
-        technologiesBox.style.height = "max-content";
-    }
-}
-
-function openDesigns() {
-        var technologiesBox = document.getElementById('technologiesBox');
-        var designBox = document.getElementById('designBox');
-        var textDesignTab = document.getElementById('textDesignTab');
-        var textTechnologieTab = document.getElementById('textTechnologieTab');
-        textDesignTab.classList.add("active")
-        textTechnologieTab.classList.remove("active")
-        technologiesBox.style.height = "0";
-        designBox.style.height = "max-content";
-}
-
 
 function Home() {
-    const [technologiesJson, setTechnologiesJson] = useState([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [jobs, setJobs] = useState([]);
+    const [expandedIndex, setExpandedIndex] = useState(null);
+    const [projects, setProjects] = useState([]);
+
+    const { ref: containerExperienceRef, inView: containerExperienceInView } = useInView({
+        threshold: 0.3,
+        triggerOnce: true,
+    });
+
+    const { ref: sectionAboutMeRef, inView: sectionAboutMeInView } = useInView({
+        threshold: 0.3,
+        triggerOnce: true,
+    });
 
     useEffect(() => {
-		fetch("../database/technologies.json")
+        const createStars = () => {
+            let count = 20;
+            let scene = document.getElementById('sceneStars');
+            let i = 0;
+            while (i < count) {
+                let star = document.createElement('div');
+                star.classList.add('star');
+                let x = Math.floor(Math.random() * scene.offsetWidth);
+                let duration = Math.random();
+                let h = Math.random() * 100;
+                star.style.left = x + 'px';
+                star.style.width = 1 + 'px';
+                star.style.height = h + 'px';
+                star.style.position = 'absolute';
+                star.style.backgroundColor = '#333';
+                star.style.animationDuration = duration + 's';
+                
+                scene.appendChild(star);
+                i++;
+            }
+        };
+
+        createStars();
+    }, []);
+
+    useEffect(() => {
+        fetch("../database/jobs.json")
         .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao consultar tecnologias');
+            }
             return response.json();
         })
         .then(jsonData => {
-            var arrayJson = []
-            for(var i = 0; i < jsonData.Technologies.length; i++) {
-                var jsonString = JSON.stringify(jsonData.Technologies[i]);
+            var arrayJson = [];
+            for (var i = 0; i < jsonData.jobs.length; i++) {
+                var jsonString = JSON.stringify(jsonData.jobs[i]);
                 arrayJson.push(JSON.parse(jsonString));
             }
-            setTechnologiesJson(arrayJson);
+            setJobs(arrayJson);
         })
-	}, [])
+        .catch(e => {
+            console.log("Exceção: " + e);
+        });
+    }, []);
 
+    useEffect(() => {
+        fetch("../database/projects.json")
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erro ao consultar projetos');
+            }
+            return response.json();
+          })
+          .then(jsonData => {
+            setProjects(jsonData.projects);
+          })
+          .catch(e => {
+            console.log("Exceção: " + e);
+          });
+      }, []);
 
+    useEffect(() => {
+        if (containerExperienceInView) {
+            const container = document.getElementById('containterExperience');
+            container.classList.remove('no-animations');
+        }
+    }, [containerExperienceInView]);
+
+    useEffect(() => {
+        if (sectionAboutMeInView) {
+            const container = document.getElementById('sectionAboutMe');
+            container.classList.remove('no-animations');
+        }
+    }, [sectionAboutMeInView]);
+
+    const handleClick = (index) => {
+        setCurrentIndex(index);
+    };
+
+    const handleExpand = (index) => {
+        setExpandedIndex(expandedIndex === index ? null : index);
+    };
     return (
         <>  
-            <nav id="nav-bar" className="navbar-transparent navbar fixed-top navbar-expand-lg">
+            <div className="home">
+                <nav id="nav-bar" className="navbar-transparent navbar fixed-top navbar-expand-lg">
                     <div className="container-navbar-mobile container-fluid">
                         <a className="navbar-brand nav-bar-mobile nav-bar-mobile-brand" href="/">
                             <Image 
-                                src="/logo_cesar_augusto.png" 
+                                src="/images/logo_cesar_augusto.png" 
                                 className="img-logo img-logo-nav-mobile" 
                                 width="63" 
                                 height="62" 
@@ -87,7 +149,7 @@ function Home() {
                         <i onClick={closeMenu} className="icon-close-menu bi bi-arrow-right-short"></i>
                         <a className="navbar-brand" href="/">
                             <Image 
-                                src="/logo_cesar_augusto.png" 
+                                src="/images/logo_cesar_augusto.png" 
                                 className="img-logo" 
                                 width="63" 
                                 height="62" 
@@ -97,7 +159,7 @@ function Home() {
                         </a>
 
                         <li className="nav-list">
-                                <Link 
+                            <Link 
                                 id="linkAboutMe" 
                                 className="nav-list-item" 
                                 to="sectionAboutMe"
@@ -105,209 +167,150 @@ function Home() {
                                 spy={true} 
                                 smooth={true} 
                                 duration={500} >SOBRE</Link>
-                                <Link
+                            <Link
                                 activeClass={"linkActive"}
-                                id="linkPortifolio" 
+                                id="linkTrajetoria" 
                                 className="nav-list-item"
+                                to="sectionExperience" 
+                                spy={true} 
+                                smooth={true} 
+                                duration={500} >TRAJETORIA</Link>
+                            <Link
+                                activeClass={"linkActive"}
+                                id="linkTecnologies" 
+                                className="nav-list-item" 
                                 to="sectionProjects" 
                                 spy={true} 
                                 smooth={true} 
-                                duration={500} >PORTFÓLIO</Link>
-                                <Link
-                                activeClass={"linkActive"}
-                                id="linkTecnologiess" 
-                                className="nav-list-item" 
-                                to="sectionTechnologies" 
-                                spy={true} 
-                                smooth={true} 
-                                duration={500} >TECNOLOGIAS</Link>  
+                                duration={500} >PROJETOS</Link>  
                         </li>
                     </div>   
-            </nav> 
-            <section className="banner-home">
-                <Image 
-                    src="/banner-home.png" 
-                    className="img-background-banner" 
-                    layout="fill"
-                    alt="Logo Cesar Augusto" 
-                />
-                <div
-                    className="img-logo-banner" 
-                    alt="Logo Cesar Augusto" 
-                ></div>
-                <div className="container-titles-banner">
-                    <h1 className="title-banner" >CESAR AUGUSTO</h1>
-                    <h3 className="subtitle-banner" >DESENVOLVEDOR FULL STACK</h3>
-                    <h3 className="subtitle-banner" >Desenvolvendo soluções criativas e inovadoras</h3>
-                </div>
-            </section>
-            <section id="sectionAboutMe" className="section-about-me container col-xxl-8 px-4 py-5">
-                <div className="container-about-me row align-items-center g-5 py-5">
-                    <div className="container-image-profile col-10 col-sm-8 col-lg-6">
+                </nav> 
+                <section className="banner-home">
+                    <div className="blob-box">
                         <Image 
-                            src="/perfil_cesar_augusto.png"
-                            className="image-profile-about-me shadow-lg mx-lg-auto img-fluid"
-                            width="300"
-                            height="270"
+                            src="/images/iconsvg1.svg" 
+                            className="img-blob-banner-home-left" 
+                            width="350" 
+                            height="229" 
+                            alt="imagem de pontos circulares" 
+                            priority={true}
+                        />
+                        <Image 
+                            src="/images/iconsvg1.svg" 
+                            className="img-blob-banner-home-right" 
+                            width="350" 
+                            height="229" 
+                            alt="imagem de pontos circulares" 
+                            priority={true}
                         />
                     </div>
-                    <div className="container-paragraphs-about-me col-lg-6">
-                        <h1 className="title-about-me display-5 fw-bold lh-1 mb-3">Sobre mim</h1>
-                        <p className="paragraph-about-me lead">
-                            Meu nome é Cesar Augusto, tenho 19 anos, sou programador junior, 
-                            graduado em Análise e Desenvolvimento de Sistemas
-                            na faculdade Bandtec(atual São Paulo Tech School, 2020-2021). 
-                            Adquiri um amplo 
-                            conhecimento técnico através de projetos 
-                            acadêmicos com os principais conceitos
-                            trabalhados no mercado da tecnologia. 
-                            Para entender um pouco mais da minha trajetória, 
-                            é preciso explicar um pouco mais
-                            sobre a faculdade em que me formei. 
-                        </p>
+                    <div
+                        className="img-logo-banner" 
+                        alt="Logo Cesar Augusto" 
+                    ></div>
+                    <div className="container-titles-banner">
+                        <h1 className="title-banner" >CESAR AUGUSTO</h1>
+                        <h3 className="subtitle-banner" >Desenvolvedor e Analista de Software</h3>
+                        <h3 className="subtitle-banner" >Desenvolvendo soluções criativas e inovadoras</h3>
                     </div>
-                    <p className="paragraph-about-me-bottom lead">
-                            Nela, no primeiro semestre, somente estudamos
-                            e nosso perfil é avaliado. Com base nessa avaliação, ao passar para 
-                            o segundo semestre automaticamente entramos como estagiários em 
-                            uma empresa parceira da faculdade, no meu caso entrei na Tivit onde 
-                            atuei como analista de suporte desde outubro de 2020 até dezembro de 2021. Além disso, não fazemos o Trabalho de Conclusão de Curso(TCC),
-                            nesse caso a cada semestre a faculdade nos desafia a criar uma aplicação
-                            para resolver necessidades atuais do nosso cotidiano, como é o caso 
-                            do projeto Tune-up, com as tecnologias que nos passarão no decorrer 
-                            do semestre. Com isso, pude atuar em 4 projetos inteiramente ligados 
-                            ao mercado da tecnologia, que você pode conferir os principais
-                            abaixo no meu portfólio ou no 
-                            <a className="about-me-link-github" 
-                            href="https://github.com/cesar-augusto-alves-barbosa">github</a>.
-                            Hoje busco uma oportunidade de me desenvolver profissionalmente e 
-                            demonstrar a minha capacidade,
-                            atuando como desenvolvedor Junior/Trainee.
-                    </p>
-                </div>
-            </section>
-            <section id="sectionTechnologies" className="section-technologies">
-                <h2 className="technologies_title">Tecnologias e Designs de Software</h2>
-                <nav className="technologies_nav nav nav-tabs">
-                    <div onClick={openTechnologies} id="technologieTab" className="nav-item">
-                        <span id="textTechnologieTab" className="technologies_nav_link active nav-link" aria-current="page">Technologias</span>
+                    <div className="buttons-banner">
+                        <a href="/documents/Cesar_Augusto_Alves_Barbosa.pdf" download>
+                            <button className="dowloadcv-button-banner">Baixar CV</button>
+                        </a>
                     </div>
-                    <div onClick={openDesigns} id="designTab" className="nav-item">
-                        <div id="textDesignTab" className="technologies_nav_link nav-link">Designs de Software</div>
+                </section>
+                <section id="sectionAboutMe" className={`section-about-me  ${sectionAboutMeInView ? 'section-about-me-visible' : 'no-animations'}`} ref={sectionAboutMeRef} >
+                    <div className="blob-box-about">
+                        <Image 
+                            src="/images/iconsvg2.svg" 
+                            className="img-blob-about-home-left" 
+                            width="350" 
+                            height="229" 
+                            alt="imagem de pontos circulares" 
+                        />
+                        <Image 
+                            src="/images/iconsvg2.svg" 
+                            className="img-blob-about-home-right" 
+                            width="350" 
+                            height="229" 
+                            alt="imagem de pontos circulares" 
+                        />
                     </div>
-                </nav>
-                <div id="technologiesBox" className="technologies_box">
-                    {
-                        technologiesJson.map((item) => {
-                            return(
-                                <div 
-                                id="technologie" 
-                                className="technologie" 
-                                title={item.time_experience}>
-                                    <Image 
-                                        src={item.icon_src}
-                                        className="technologie_icon"
-                                        width={item.icon_width}
-                                        height={item.icon_height}  
-                                    />
-                                    <div className="technologie_description">
-                                        <span className="technologie_name">{item.name}</span>
-                                        <span className="technologie_time">Experiência:</span>
-                                        <span className="technologie_time">{item.time_experience}</span>
-                                    </div>
+                    <div className="container-about-blobs">
+                        <div className="container-about-me row align-items-center g-5 py-5">
+                            <div className="container-image-profile col-10 col-sm-8 col-lg-6">
+                                <Image 
+                                    src="/images/perfil_cesar_augusto.png"
+                                    className="image-profile-about-me shadow-lg mx-lg-auto img-fluid"
+                                    width="300"
+                                    height="270"
+                                    alt="Eu Cesar Augusto"
+                                />
+                            </div>
+                            <div className="container-paragraphs-about-me col-lg-6">
+                                <h1 className="title-about-me display-5 fw-bold lh-1 mb-3">Sobre mim</h1>
+                                <p className="paragraph-about-me lead">
+                                    Graduado aos 19 anos, tenho desenvolvido uma sólida base técnica ao participar ativamente de 
+                                    projetos acadêmicos focados em conceitos essenciais do mercado de tecnologia. 
+                                    Possuo conhecimentos e experiência prática em uma variedade de tecnologias, incluindo Java, JavaScript, Spring Boot e PLSQL (Oracle). 
+                                    Além disso, estou constantemente expandindo meu repertório técnico e atualmente estudo outras tecnologias emergentes, como 
+                                    React, React Native e Next.js, para me manter na vanguarda das inovações no desenvolvimento de software. 
+                                </p>
+                            </div>
+                        </div>               
+                    </div>
+                </section>
+                <section id="sectionExperience" className="section-experience">
+                    <h2 className="experience_title">Trajetória</h2>
+                    
+                    <div id="containterExperience" className={`container-experience ${containerExperienceInView ? 'container-experience-visible' : 'no-animations'}`} ref={containerExperienceRef}>
+                        <div className="rocket-conteiner-scene">
+                            <div id="sceneStars" className="scene-stars">
+                            </div>
+                            <div className="rocket-conteiner">
+                                <div className="rocket-box">
+                                    <RiRocketFill alt="foguete" className="experience-rocket" />
                                 </div>
-                            )
-                        })
-                    }
-                </div>
-                <div id="designBox" className="designs_box">
-                    <ul className="designs_list">
-                        <li className="designs_item" >Metodologia SCRUM</li>
-                        <li className="designs_item" >Backlogs</li>
-                        <li className="designs_item" >Product Backlogs</li>
-                        <li className="designs_item" >Programação Orientada a Objetos(POO, OO)</li>
-                        <li className="designs_item" >Programação funcional</li>
-                        <li className="designs_item" >UX/UI</li>
-                    </ul>
-                    <ul className="designs_list">
-                        <li className="designs_item" >Diagramas(Classes, DER, MER, BPMN)</li>
-                        <li className="designs_item" >Design de Arquitetura</li>
-                        <li className="designs_item" >Figma</li>
-                        <li className="designs_item" >Wireframes</li>
-                        <li className="designs_item" >HLD/LLD</li>
-                        <li className="designs_item" >User Stories</li>
-                    </ul>
-                </div>
- 
-            </section>
-            <section id="sectionProjects" className="section-projects">
-                <h2 className="title-projects">
-                    PORTFÓLIO
-                </h2>
-                <div className="projects-cards">
-                    <a className="card" href="https://github.com/cesar-augusto-alves-barbosa/Mind6">
-                        <div className="card-img-top">
-                        <Image 
-                            src="/Logo-DotControl-Tec-white.png"
-                            className="card-project-img-controltech card-project-img"
-                            width="170"
-                            height="90"    
-                        />
+                            </div> 
                         </div>
-                        <div className="card-body">
-                            <h5 className="card-title">.CONTROLTEC</h5>
-                            <p className="card-text">
-                                Software de monitoração de componentes e aplicativos de computadores escolares. 
-                            </p>
-                            <div className="card-click">
-                                <span className="card-subtitle-click">Saiba mais</span>
-                                <i className="card-click-hand bi bi-hand-index-thumb"></i>
+                        <div className="experiences-box">
+                            <div className="carousel">
+                                {jobs.map((job, index) => (
+                                    <Job
+                                        key={index}
+                                        job={job}
+                                        isActive={index === currentIndex}
+                                        isExpanded={index === expandedIndex}
+                                        onClick={() => handleClick(index)}
+                                        onExpand={() => handleExpand(index)}
+                                        className={`job ${index === currentIndex ? 'active' : ''} ${index === expandedIndex ? 'expanded' : ''}`}
+                                    />
+                                ))}
                             </div>
                         </div>
-                    </a>
-                    <a className="card" href="https://github.com/cesar-augusto-alves-barbosa/Tune-up">
-                        <div className="card-img-top">
-                        <Image 
-                            src="/ems-tuneup-branco.svg"
-                            className="card-project-img-controltech card-project-img"
-                            width="220"
-                            height="120"    
-                        />
-                        </div>
-                        <div className="card-body">
-                            <h5 className="card-title">EMS</h5>
-                            <p className="card-text">
-                                Esse projeto apresenta o desenvolvimento de uma plataforma para utilização em oficinas mecânicas. 
-                            </p>
-                            <div className="card-click">
-                                <span className="card-subtitle-click">Saiba mais</span>
-                                <i className="card-click-hand bi bi-hand-index-thumb"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <a className="card" href="https://github.com/cesar-augusto-alves-barbosa/godzilla-local-fIlms">
-                        <div className="card-img-top">
-                        <Image 
-                            src="/Godzilla.png"
-                            className="card-project-img-controltech card-project-img"
-                            width="90"
-                            height="130"    
-                        />
-                        </div>
-                        <div className="card-body">
-                            <h5 className="card-title">Godzilla Local Films</h5>
-                            <p className="card-text">
-                            Projeto de desenvolvimento de uma API para uma empresa de locadora de filmes chamada Godzilla.
-                            </p>
-                            <div className="card-click">
-                                <span className="card-subtitle-click">Saiba mais</span>
-                                <i className="card-click-hand bi bi-hand-index-thumb"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </section>
-            <footer className="footer">
+                    </div>
+                </section>
+                <section id="sectionProjects" className="section-projects">
+                    <h2 className="title-projects">
+                        Projetos
+                    </h2>
+                    <div className="projects-cards">
+                        {projects.map(project => (
+                            <ProjectCard
+                            key={project.id}
+                            title={project.title}
+                            description={project.description}
+                            imageUrl={project.imageUrl}
+                            technologies={project.technologies}
+                            width={project.width}
+                            height={project.height}
+                            />
+                        ))}
+                    </div>
+                </section>
+            </div>
+            <footer id="footer" className="footer">
                 <div className="footer-container-social-media">
                     <h4 className="footer-subtitle-social-media">REDES SOCIAIS</h4>
                     <div className="footer-container-icons-social-media">
@@ -331,7 +334,7 @@ function Home() {
                 </div>
                 <div className="footer-container-brand">
                     <Image 
-                        src="/logo_cesar_augusto.png" 
+                        src="/images/logo_cesar_augusto.png" 
                         className="img-logo" 
                         width="43" 
                         height="42" 
@@ -343,13 +346,12 @@ function Home() {
                     <h4 className="footer-subtitle-contact">Contato</h4>
                     <ul className="footer-list-contact">
                         <li className="footer-item-contact">Telefone/Whatsapp: 55(11)951700736</li>
-                        <li className="footer-item-contact">Email: cesar.guga2013@gmail.com</li>
+                        <li className="footer-item-contact">Email: dev.cesar.augusto.alves@gmail.com</li>
                     </ul>
                 </div>
             </footer>
         </>
     )
 }
-
 
 export default Home;
