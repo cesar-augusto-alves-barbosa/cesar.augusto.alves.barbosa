@@ -122,10 +122,18 @@ function Home() {
     }, [sectionAboutMeInView]);
 
     const handleClick = (index) => {
+        const jobActive = document.getElementsByClassName('job-active');
+        if(jobActive.length > 0) {
+            jobActive[0].classList.remove('job-active');
+        }
         setCurrentIndex(index);
     };
 
     const handleExpand = (index) => {
+        const jobActive = document.getElementsByClassName('job-active');
+        if(jobActive.length > 0) {
+            jobActive[0].classList.remove('job-active');
+        }
         setExpandedIndex(expandedIndex === index ? null : index);
     };
     return (
@@ -284,7 +292,7 @@ function Home() {
                                         isExpanded={index === expandedIndex}
                                         onClick={() => handleClick(index)}
                                         onExpand={() => handleExpand(index)}
-                                        className={`job ${index === currentIndex ? 'active' : ''} ${index === expandedIndex ? 'expanded' : ''}`}
+                                        className={`job ${index === currentIndex ? 'job-active' : ''} ${index === expandedIndex ? 'expanded' : ''}`}
                                     />
                                 ))}
                             </div>

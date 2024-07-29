@@ -191,6 +191,24 @@
     text-decoration: underline;
 }
 
+
+@media only screen and (max-width: 1570px) {
+    .container-about-me {
+        margin: 40px 0!important;
+
+        align-items: center!important;
+        justify-content: center!important;
+    }
+    .container-paragraphs-about-me {
+        width: max-content!important;
+
+        margin-top: 20px!important;
+    }
+    
+    .container-image-profile  {
+        margin: 0!important;
+    }
+}
 @keyframes anm-blobs {
     0% {
         opacity: 0.6;

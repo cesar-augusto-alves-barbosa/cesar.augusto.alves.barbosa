@@ -73,7 +73,7 @@
 
     font-size: 18px;
 
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif!important;
 }
 
 .nav-list {
@@ -450,26 +450,10 @@
 .footer-subtitle-social-media {
     font-size: 18px;
 
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif!important;
 }
 
-@media only screen and (max-width: 1570px) {
-    .container-about-me {
-        margin: 40px 0!important;
 
-        align-items: center!important;
-        justify-content: center!important;
-    }
-    .container-paragraphs-about-me {
-        width: max-content;
-
-        margin-top: 20px;
-    }
-    
-    .container-image-profile  {
-        margin: 0;
-    }
-}
 
 
 @media only screen and (max-width: 991px) {
@@ -509,7 +493,7 @@
     }
 
     .card {
-        min-width: 400px;
+        min-width: 400px!important;
     }
 }
 
@@ -517,27 +501,24 @@
     .footer-container-social-media,
     .footer-container-brand,
     .footer-container-contact {
-        margin: 30px 0;
+        margin: 30px 0!important;
     }
 
     .footer {
-        flex-direction: column;
+        flex-direction: column!important;
     }
     .technologys_title {
-        width: 300px;
+        width: 300px!important;
 
-        font-size: 15px;
+        font-size: 15px!important;
     }
 
     .technologys_title::before {
-        display: none;
-    }
-
-    .designs_list {
+        display: none!important;
     }
 
     .designs_item {
-        width: 200px;
+        width: 200px!important;
     }
 }
 
@@ -553,48 +534,48 @@
         justify-content: flex-start!important;
     }
     .nav-bar-mobile {
-        display: flex;
+        display: flex!important;
     
     }
     .icon-menu {
-        display: block;
+        display: block!important;
     }
     #side-bar {
-        height: 100%;
-        width: 100%;
+        height: 100%!important;
+        width: 100%!important;
 
-        bottom: 0;
+        bottom: 0!important;
 
-        position: fixed;
+        position: fixed!important;
 
-        display: none;
-        flex-direction: column;
+        display: none!important;
+        flex-direction: column!important;
         align-items: unset!important;
 
-        background-color: var(--black);
+        background-color: var(--black)!important;
     }
 
 
     .navbar-brand {
-       margin-top: 20px;
-       margin-left: 40px;
+       margin-top: 20px!important;
+       margin-left: 40px!important;
     }
 
     .nav-bar-mobile-brand {
-        margin: 0;
-        margin-left: 20px;
+        margin: 0!important;
+        margin-left: 20px!important;
     }
 
     .icon-close-menu {
-        display: block;
-        color: white;
+        display: block!important;
+        color: white!important;
 
-        position: absolute;
+        position: absolute!important;
 
-        right: 2vw;
-        top: 20px;
+        right: 2vw!important;
+        top: 20px!important;
 
-        font-size: 50px;
+        font-size: 50px!important;
     }
 
     .nav-list {
@@ -617,19 +598,19 @@
     }
 
     .icon-menu {
-        font-size: 2em;
+        font-size: 2em!important;
 
-        margin-right: 10px;
+        margin-right: 10px!important;
     }
 
     .subtitle-banner {
-        font-size: 13px;
+        font-size: 13px!important;
     }
 
     .title-about-me {
-        font-size: 20px;
+        font-size: 20px!important;
 
-        width: max-content;
+        width: max-content!important;
     }
     
     .paragraph-about-me,
@@ -638,30 +619,30 @@
     }
 
     .card {
-        min-width: 300px;
-        height: max-content;
-        margin: 10px;
+        min-width: 300px!important;
+        height: max-content!important;
+        margin: 10px!important;
     }
 
     .rocket-conteiner-scene {
-        min-width: auto;
+        min-width: auto!important;
     }
 
 
     .project-card-box-desc-tech {
-        flex-wrap: wrap;
+        flex-wrap: wrap!important;
     }
 
     .project-card-box-desc{
-        min-width: 177px;
+        min-width: 177px!important;
     }
 
     .project-card-box-tech {
-        width: 100%;
+        width: 100%!important;
 
-        justify-content: flex-start;
+        justify-content: flex-start!important;
 
-        margin-bottom: 20px;
+        margin-bottom: 20px!important;
     }
 }
 

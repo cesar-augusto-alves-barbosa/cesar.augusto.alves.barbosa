@@ -3,7 +3,7 @@ import { FaExpandArrowsAlt, FaCompressArrowsAlt } from "react-icons/fa";
 
 const Job = ({ job, isActive, onClick, onExpand, isExpanded, className, style }) => {
     return (
-        <div className={`${className} ${isActive ? 'active' : ''}`} onClick={onClick} style={style}>
+        <div className={`${className} ${isActive ? 'job-active' : ''}`} onClick={onClick} style={style}>
             <h2>{job.title}</h2>
             <p>{job.company}</p>
             <p>{job.duration}</p>
