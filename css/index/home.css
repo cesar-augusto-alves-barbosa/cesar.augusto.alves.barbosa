@@ -255,7 +255,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    z-index: 2;
+    z-index: 1;
     box-shadow: 70px 70px 0 40px var(--soft-gray);
 }
 
@@ -635,6 +635,8 @@
 
     .project-card-box-desc{
         min-width: 177px!important;
+
+        width: 100%!important;
     }
 
     .project-card-box-tech {
@@ -664,6 +666,12 @@
     }
     100% {
         opacity: 0.6;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .footer-container-icons-social-media {
+        width: 100%;
     }
 }
 

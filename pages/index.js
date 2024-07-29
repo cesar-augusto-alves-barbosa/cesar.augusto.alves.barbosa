@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef  } from "react";
 import Image from "next/future/image";
 import Job from "../components/Job.js";
 import { RiRocketFill } from "react-icons/ri";
@@ -7,32 +7,12 @@ import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer";
 import ProjectCard from '../components/ProjectCard';
 
-if (typeof window !== "undefined") {
-    window.addEventListener('scroll', () => {
-        var nav = document.getElementById('nav-bar');
-        nav.classList.toggle('sticky-nav', window.scrollY > 200);
-    });
-}
-
-function closeMenu() {
-    if (typeof window !== "undefined") {
-        var nav = document.getElementById('side-bar');
-        nav.style.display = "none";
-    }
-}
-
-function openMenu() {
-    if (typeof window !== "undefined") {
-        var nav = document.getElementById('side-bar');
-        nav.style.display = "flex";
-    }
-}
-
 function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [jobs, setJobs] = useState([]);
     const [expandedIndex, setExpandedIndex] = useState(null);
     const [projects, setProjects] = useState([]);
+    const jobRefs = useRef([]);
 
     const { ref: containerExperienceRef, inView: containerExperienceInView } = useInView({
         threshold: 0.3,
@@ -45,25 +25,38 @@ function Home() {
     });
 
     useEffect(() => {
+        const handleScroll = () => {
+            const nav = document.getElementById('nav-bar');
+            if (nav) {
+                nav.classList.toggle('sticky-nav', window.scrollY > 200);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    useEffect(() => {
         const createStars = () => {
-            let count = 20;
-            let scene = document.getElementById('sceneStars');
-            let i = 0;
-            while (i < count) {
-                let star = document.createElement('div');
+            const scene = document.getElementById('sceneStars');
+            if (!scene) return;
+
+            const count = 20;
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
                 star.classList.add('star');
-                let x = Math.floor(Math.random() * scene.offsetWidth);
-                let duration = Math.random();
-                let h = Math.random() * 100;
-                star.style.left = x + 'px';
-                star.style.width = 1 + 'px';
-                star.style.height = h + 'px';
+                const x = Math.floor(Math.random() * scene.offsetWidth);
+                const duration = Math.random();
+                const h = Math.random() * 100;
+                star.style.left = `${x}px`;
+                star.style.width = '1px';
+                star.style.height = `${h}px`;
                 star.style.position = 'absolute';
                 star.style.backgroundColor = '#333';
-                star.style.animationDuration = duration + 's';
-                
+                star.style.animationDuration = `${duration}s`;
                 scene.appendChild(star);
-                i++;
             }
         };
 
@@ -72,70 +65,89 @@ function Home() {
 
     useEffect(() => {
         fetch("../database/jobs.json")
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao consultar tecnologias');
-            }
-            return response.json();
-        })
-        .then(jsonData => {
-            var arrayJson = [];
-            for (var i = 0; i < jsonData.jobs.length; i++) {
-                var jsonString = JSON.stringify(jsonData.jobs[i]);
-                arrayJson.push(JSON.parse(jsonString));
-            }
-            setJobs(arrayJson);
-        })
-        .catch(e => {
-            console.log("Exceção: " + e);
-        });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao consultar tecnologias');
+                }
+                return response.json();
+            })
+            .then(jsonData => {
+                setJobs(jsonData.jobs);
+            })
+            .catch(e => {
+                console.log("Exceção: " + e);
+            });
     }, []);
 
     useEffect(() => {
         fetch("../database/projects.json")
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Erro ao consultar projetos');
-            }
-            return response.json();
-          })
-          .then(jsonData => {
-            setProjects(jsonData.projects);
-          })
-          .catch(e => {
-            console.log("Exceção: " + e);
-          });
-      }, []);
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao consultar projetos');
+                }
+                return response.json();
+            })
+            .then(jsonData => {
+                setProjects(jsonData.projects);
+            })
+            .catch(e => {
+                console.log("Exceção: " + e);
+            });
+    }, []);
 
     useEffect(() => {
         if (containerExperienceInView) {
             const container = document.getElementById('containterExperience');
-            container.classList.remove('no-animations');
+            if (container) {
+                container.classList.remove('no-animations');
+            }
         }
     }, [containerExperienceInView]);
 
     useEffect(() => {
         if (sectionAboutMeInView) {
             const container = document.getElementById('sectionAboutMe');
-            container.classList.remove('no-animations');
+            if (container) {
+                container.classList.remove('no-animations');
+            }
         }
     }, [sectionAboutMeInView]);
 
+
     const handleClick = (index) => {
-        const jobActive = document.getElementsByClassName('job-active');
-        if(jobActive.length > 0) {
-            jobActive[0].classList.remove('job-active');
+        if (index !== currentIndex) {
+            setExpandedIndex(null); // Fecha qualquer job expandido
         }
-        setCurrentIndex(index);
+        setTimeout(() => {
+        setCurrentIndex(index); // Ativa o job clicado
+            if (jobRefs.current[index]) {
+                jobRefs.current[index].scrollIntoView({ behavior: 'smooth', block: 'center',  inline: 'center' });
+            }
+        }, 100);
     };
 
     const handleExpand = (index) => {
-        const jobActive = document.getElementsByClassName('job-active');
-        if(jobActive.length > 0) {
-            jobActive[0].classList.remove('job-active');
+        if (expandedIndex === index) {
+            setExpandedIndex(null); // Se o mesmo job estiver sendo clicado novamente, feche-o
+        } else {
+            setExpandedIndex(index); // Expanda o job clicado
         }
-        setExpandedIndex(expandedIndex === index ? null : index);
     };
+
+    const closeMenu = () => {
+        const nav = document.getElementById('side-bar');
+        if (nav) {
+            nav.style.display = "none";
+        }
+    }
+
+    const openMenu = () => {
+        const nav = document.getElementById('side-bar');
+        if (nav) {
+            nav.style.display = "flex";
+        }
+    }
+
     return (
         <>  
             <div className="home">
@@ -287,6 +299,7 @@ function Home() {
                                 {jobs.map((job, index) => (
                                     <Job
                                         key={index}
+                                        ref={el => jobRefs.current[index] = el}
                                         job={job}
                                         isActive={index === currentIndex}
                                         isExpanded={index === expandedIndex}
@@ -306,13 +319,14 @@ function Home() {
                     <div className="projects-cards">
                         {projects.map(project => (
                             <ProjectCard
-                            key={project.id}
-                            title={project.title}
-                            description={project.description}
-                            imageUrl={project.imageUrl}
-                            technologies={project.technologies}
-                            width={project.width}
-                            height={project.height}
+                                key={project.id}
+                                title={project.title}
+                                description={project.description}
+                                imageUrl={project.imageUrl}
+                                technologies={project.technologies}
+                                width={project.width}
+                                height={project.height}
+                                link={project.link}
                             />
                         ))}
                     </div>

@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 
-const ProjectCard = ({ title, description, imageUrl, technologies, width, height }) => {
+const ProjectCard = ({ title, description, imageUrl, technologies, width, height, link }) => {
   return (
-    <div className="card">
+    <a className="card" href={link}>
       <div className="card-box-img">
         <div className="card-img-top">
           <Image 
@@ -30,8 +30,8 @@ const ProjectCard = ({ title, description, imageUrl, technologies, width, height
           </div>
         </div>
       </div>
-      <a className='project-card-link'>Saiba mais</a>
-    </div>
+      <div className='project-card-link'>Saiba mais</div>
+    </a>
   );
 };
 

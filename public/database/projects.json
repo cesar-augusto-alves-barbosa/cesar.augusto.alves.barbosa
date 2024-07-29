@@ -7,7 +7,8 @@
       "imageUrl": "/images/Logo-DotControl-Tec-white.svg",
       "technologies": ["Java", "Oshi Api", "NodeJS", "AzureDB"],
       "width": 785,
-      "height": 400
+      "height": 400,
+      "link": "https://github.com/cesar-augusto-alves-barbosa/Mind6"
     },
     {
       "id": 2,
@@ -16,7 +17,8 @@
       "imageUrl": "/images/ems-tuneup-branco.svg",
       "technologies": ["Java", "Spring Boot", "Kotlin", "MySQL"],
       "width": 220,
-      "height": 120
+      "height": 120,
+      "link": "https://github.com/cesar-augusto-alves-barbosa/Tune-up"
     },
     {
       "id": 3,
@@ -25,7 +27,8 @@
       "imageUrl": "/images/Godzilla.svg",
       "technologies": ["Java", "Spring Boot", "MySQL", "H2 Database"],
       "width": 400,
-      "height": 200
+      "height": 200,
+      "link": "https://github.com/cesar-augusto-alves-barbosa/godzilla-local-fIlms"
     }
   ]
 }

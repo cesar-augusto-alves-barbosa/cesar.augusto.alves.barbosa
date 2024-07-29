@@ -168,8 +168,7 @@
     opacity: 0.5; /* Opacidade reduzida para itens inativos */
     transform: scale(0.8); /* Escala menor para itens inativos */
     z-index: 0;
-    transition: .5s ease-out;
-
+    transition: all 0.5s ease-out; /* Transição de todas as propriedades */
     color: var(--white);
     height: 250px;
     width: 95%;
@@ -189,7 +188,7 @@
     height: 100px; /* Ajuste conforme necessário */
     background: linear-gradient(to bottom, transparent, var(--soft-gray) 75%);
     pointer-events: none; /* Permite clicar através da sombra */
-    transition: 1s ease-out;
+    transition: height 0.5s ease-out; /* Transição suave para a altura */
 }
 
 .job.expanded::after {
@@ -205,9 +204,8 @@
     position: absolute; /* Posicione o job expandido acima dos outros */
     top: 0;
     left: 0;
+    transition: all 0.5s ease-out; /* Transição de todas as propriedades */
 }
-
-
 
 .job .expand-button {
     position: absolute;
@@ -223,7 +221,6 @@
     transition: background-color 0.3s ease;
     text-decoration: none;
 }
-
 
 .job.job-active {
     opacity: 1; /* Opacidade total para item ativo */
@@ -381,6 +378,12 @@
     }
 }
 
+@media only screen and (max-width: 1380px) {
+    .section-experience {
+        height: auto;
+    }
+}
+
 @media only screen and (max-width: 1250px) {
     .container-experience-visible {
         justify-content: center;
@@ -390,27 +393,20 @@
         margin-bottom: 90px;
     }
 
-    .section-experience {
-        height: auto;
-    }
-
     .rocket-conteiner::after {
         height: 20%;
     }
 
     .job.expanded {
-        position: fixed;
+        position: relative;
 
+        margin: 0;
 
-        width: 90vw;
+        z-index: 0;
 
-        margin: auto;
-
-        z-index: 3;
-
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: auto;
+        left: auto;
+        transform: translate(0%, 0%);
     }
 
     .experiences-box {

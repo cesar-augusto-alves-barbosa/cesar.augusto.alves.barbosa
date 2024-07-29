@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { FaExpandArrowsAlt, FaCompressArrowsAlt } from "react-icons/fa";
 
-const Job = ({ job, isActive, onClick, onExpand, isExpanded, className, style }) => {
+const Job = forwardRef(({ job, isActive, onClick, onExpand, isExpanded, className, style }, ref) => {
     return (
-        <div className={`${className} ${isActive ? 'job-active' : ''}`} onClick={onClick} style={style}>
+        <div ref={ref} className={`${className} ${isActive ? 'job-active' : ''}`} onClick={onClick} style={style}>
             <h2>{job.title}</h2>
             <p>{job.company}</p>
             <p>{job.duration}</p>
@@ -33,6 +33,6 @@ const Job = ({ job, isActive, onClick, onExpand, isExpanded, className, style })
             )}
         </div>
     );
-};
+});
 
 export default Job;
