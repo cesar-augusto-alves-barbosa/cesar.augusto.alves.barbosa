@@ -28,7 +28,7 @@ a {
 }
 
 a:hover {
-    color: var(--white);
+    color: var(--white)!important;
 }
 
 body {
