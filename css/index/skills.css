@@ -1,0 +1,49 @@
+.section_skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+
+    color: var(--white);
+}
+
+.skills_title {
+    width: max-content;
+}
+
+.skills_container {
+    margin-top: 50px;
+
+    width: 80%;
+    min-height: 50vh;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.skill {
+    margin: 20px;
+
+    width: 150px;
+    height: 120px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: center;
+}
+
+.skill_icon {
+    box-sizing: border-box;
+    
+    
+    width: 70px;
+    height: 70px;
+
+    margin: 10px;
+}

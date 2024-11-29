@@ -1,0 +1,102 @@
+{
+  "skills": [
+    {
+      "name": "Java",
+      "icon": "/logos_technologys/java.png",
+      "yearsOfExperience": 3,
+      "width": 70,
+      "height": 70
+    },
+    {
+      "name": "Groovy",
+      "icon": "/logos_technologys/groovy.png",
+      "yearsOfExperience": 2,
+      "width": 100,
+      "height": 70
+    },
+    {
+      "name": "Kotlin",
+      "icon": "/logos_technologys/kotlin.png",
+      "yearsOfExperience": 2,
+      "width": 50,
+      "height": 50
+    },
+    {
+      "name": "Spring Framework",
+      "icon": "/logos_technologys/spring_boot.png",
+      "yearsOfExperience": 3,
+      "width": 80,
+      "height": 70
+    },
+    {
+      "name": "Oracle DB (PLSQL)",
+      "icon": "/logos_technologys/oracle_plsql.png",
+      "yearsOfExperience": 3,
+      "width": 70,
+      "height": 70
+    },
+    {
+      "name": "MySQL",
+      "icon": "/logos_technologys/my_sql.png",
+      "yearsOfExperience": 3,
+      "width": 70,
+      "height": 70
+    },
+    {
+      "name": "SQL Server",
+      "icon": "/logos_technologys/sql_server.png",
+      "yearsOfExperience": 2,
+      "width": 65,
+      "height": 70
+    },
+    {
+      "name": "Git",
+      "icon": "/logos_technologys/git.png",
+      "yearsOfExperience": 3,
+      "width": 60,
+      "height": 60
+    },
+    {
+      "name": "Kafka",
+      "icon": "/logos_technologys/kafka.png",
+      "yearsOfExperience": 1,
+      "width": 70,
+      "height": 70
+    },
+    {
+      "name": "Kibana",
+      "icon": "/logos_technologys/kibana.png",
+      "yearsOfExperience": 1,
+      "width": 70,
+      "height": 65
+    },
+    {
+      "name": "React",
+      "icon": "/logos_technologys/react.png",
+      "yearsOfExperience": 2,
+      "width": 75,
+      "height": 70
+    },
+    {
+      "name": "Shell Script",
+      "icon": "/logos_technologys/bash.png",
+      "yearsOfExperience": 2,
+      "width": 70,
+      "height": 70
+    },
+    {
+      "name": "GitLab",
+      "icon": "/logos_technologys/gitlab.png",
+      "yearsOfExperience": 2,
+      "width": 70,
+      "height": 70
+    },
+    {
+      "name": "AWS EC2",
+      "icon": "/logos_technologys/aws.png",
+      "yearsOfExperience": 1,
+      "width": 90,
+      "height": 70
+    }
+  ]
+}

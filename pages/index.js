@@ -3,6 +3,9 @@ import Image from "next/future/image";
 import Job from "../components/Job.js";
 import { RiRocketFill } from "react-icons/ri";
 import { FaGithub } from "react-icons/fa6";
+import * as SiIcons from 'react-icons/si';
+import * as FaIcons from 'react-icons/fa';
+import Skill from '../components/Skill';
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer";
 import ProjectCard from '../components/ProjectCard';
@@ -13,6 +16,12 @@ function Home() {
     const [expandedIndex, setExpandedIndex] = useState(null);
     const [projects, setProjects] = useState([]);
     const jobRefs = useRef([]);
+    const [skills, setSkills] = useState([]);
+    const iconsLibraries = {
+        fa: FaIcons,
+        si: SiIcons
+      };
+
 
     const { ref: containerExperienceRef, inView: containerExperienceInView } = useInView({
         threshold: 0.3,
@@ -23,6 +32,7 @@ function Home() {
         threshold: 0.3,
         triggerOnce: true,
     });
+    
 
     useEffect(() => {
         const handleScroll = () => {
@@ -113,6 +123,22 @@ function Home() {
         }
     }, [sectionAboutMeInView]);
 
+    useEffect(() => {
+        fetch("../database/skills.json")
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Erro ao consultar skills');
+            }
+            return response.json();
+          })
+          .then(jsonData => {
+              setSkills(jsonData.skills);
+          })
+          .catch(e => {
+            console.log("Exceção: " + e);
+          });
+      }, []);
+
 
     const handleClick = (index) => {
         if (index !== currentIndex) {
@@ -154,13 +180,6 @@ function Home() {
                 <nav id="nav-bar" className="navbar-transparent navbar fixed-top navbar-expand-lg">
                     <div className="container-navbar-mobile container-fluid">
                         <a className="navbar-brand nav-bar-mobile nav-bar-mobile-brand" href="/">
-                            <Image 
-                                src="/images/logo_cesar_augusto.png" 
-                                className="img-logo img-logo-nav-mobile" 
-                                width="63" 
-                                height="62" 
-                                alt="Logo Cesar Augusto" 
-                            />
                             <div className="title-logo title-logo-mobile">CESAR AUGUSTO</div>
                         </a>
                         <i onClick={openMenu} className="icon-menu bi bi-list"></i>
@@ -168,13 +187,6 @@ function Home() {
                     <div id="side-bar" className="container-fluid container-nav-bar nav-side-bar-mobile">
                         <i onClick={closeMenu} className="icon-close-menu bi bi-arrow-right-short"></i>
                         <a className="navbar-brand" href="/">
-                            <Image 
-                                src="/images/logo_cesar_augusto.png" 
-                                className="img-logo" 
-                                width="63" 
-                                height="62" 
-                                alt="Logo Cesar Augusto" 
-                            />
                             <span className="title-logo">CESAR AUGUSTO</span>
                         </a>
 
@@ -225,10 +237,6 @@ function Home() {
                             priority={true}
                         />
                     </div>
-                    <div
-                        className="img-logo-banner" 
-                        alt="Logo Cesar Augusto" 
-                    ></div>
                     <div className="container-titles-banner">
                         <h1 className="title-banner" >CESAR AUGUSTO</h1>
                         <h3 className="subtitle-banner" >Desenvolvedor e Analista de Software</h3>
@@ -236,7 +244,7 @@ function Home() {
                     </div>
                     <div className="buttons-banner">
                         <a href="/documents/Cesar_Augusto_Alves_Barbosa.pdf" download>
-                            <button className="dowloadcv-button-banner">Baixar CV</button>
+                            <button className="dowloadcv-button-banner">Baixar Currículo</button>
                         </a>
                     </div>
                 </section>
@@ -279,6 +287,18 @@ function Home() {
                                 </p>
                             </div>
                         </div>               
+                    </div>
+                </section>
+                <section className="section_skills">
+                    <h2 className="skills_title">Skills</h2>
+                    <div className="skills_container">
+                        {
+                            skills.map((skill, index) => {
+                                const IconLibrary = iconsLibraries[skill.library];
+                                const IconComponent = IconLibrary ? IconLibrary[skill.icon] : null; 
+                                return <Skill icon={skill.icon} key={index} iconW={skill.width} iconH={skill.height} name={skill.name} IconComponent={IconComponent} />;
+                            })
+                        }
                     </div>
                 </section>
                 <section id="sectionExperience" className="section-experience">
@@ -355,13 +375,6 @@ function Home() {
                     </div>
                 </div>
                 <div className="footer-container-brand">
-                    <Image 
-                        src="/images/logo_cesar_augusto.png" 
-                        className="img-logo" 
-                        width="43" 
-                        height="42" 
-                        alt="Logo Cesar Augusto" 
-                    />
                     <h4 className="footer-subtitle-brand">CESAR AUGUSTO</h4>
                 </div>
                 <div className="footer-container-contact">
